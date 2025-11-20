@@ -1,0 +1,111 @@
+{
+  "version": "1.1",
+  "updated": "2025-11-20",
+  "dailyInspiration": {
+    "quote": "We are born to be happy,\nnot to race with other people\non everything we do",
+    "author": null
+  },
+  "tasks": [
+    {
+      "id": "future_me",
+      "text": "Do a tiny thing for Future Me",
+      "alternateText": null,
+      "notes": "Pick one small thing to make tomorrow easier:\n• Pack a lunch\n• Lay out your clothes\n• Charge your devices",
+      "examples": null,
+      "notification": {
+        "title": "Do a tiny thing for Future Me",
+        "body": "Hey, just a quick idea: one tiny thing tonight can save future-you 10 minutes tomorrow. Want help picking one?",
+        "triggerAfterHours": 8,
+        "triggerAfterDays": null,
+        "triggerAfterMinutes": null,
+        "triggerAfterCompletions": null,
+        "preferredTimeStart": "19:00",
+        "preferredTimeEnd": "21:00",
+        "condition": null,
+        "action": null
+      },
+      "category": "self_care"
+    },
+    {
+      "id": "check_in",
+      "text": "Set aside 2 minutes to just breathe and notice how you're doing",
+      "alternateText": "Check in with myself",
+      "notes": "A tiny reflection moment for yourself",
+      "examples": null,
+      "notification": {
+        "title": "Make space to check in",
+        "body": "Hi 👋 Just checking in. Want to take 2 minutes for a quick reset?",
+        "triggerAfterHours": null,
+        "triggerAfterDays": 1,
+        "triggerAfterMinutes": null,
+        "triggerAfterCompletions": null,
+        "preferredTimeStart": null,
+        "preferredTimeEnd": null,
+        "condition": null,
+        "action": null
+      },
+      "category": "wellness"
+    },
+    {
+      "id": "proud_moment",
+      "text": "Jot down one thing you did well this week—even if it's tiny",
+      "alternateText": null,
+      "notes": "Ideas:\n• I kept going\n• I said no to something that didn't serve me",
+      "examples": null,
+      "notification": {
+        "title": "Name something you're proud of",
+        "body": "You've already made progress 💪 Want to take 30 seconds to name one thing you're proud of?",
+        "triggerAfterHours": null,
+        "triggerAfterDays": 3,
+        "triggerAfterMinutes": null,
+        "triggerAfterCompletions": null,
+        "preferredTimeStart": null,
+        "preferredTimeEnd": null,
+        "condition": null,
+        "action": null
+      },
+      "category": "reflection"
+    },
+    {
+      "id": "quick_win",
+      "text": "Pick a 5-minute thing you can do right now",
+      "alternateText": null,
+      "notes": "Quick wins:\n• Tidy one drawer\n• Send a quick check-in message\n• Delete 10 junk emails",
+      "examples": null,
+      "notification": {
+        "title": "Create a small 'win loop'",
+        "body": "Want to check off a quick win? I've got a few ideas.",
+        "triggerAfterHours": null,
+        "triggerAfterDays": null,
+        "triggerAfterMinutes": 5,
+        "triggerAfterCompletions": null,
+        "preferredTimeStart": null,
+        "preferredTimeEnd": null,
+        "condition": "no_completions",
+        "action": null
+      },
+      "category": "momentum"
+    },
+    {
+      "id": "feedback",
+      "text": "Tell us how Chime feels so far",
+      "alternateText": null,
+      "notes": "Your feedback helps us make Chime better for everyone",
+      "examples": null,
+      "notification": {
+        "title": "Quick check-in",
+        "body": "We'd love to hear how Chime's working for you! Got 20 seconds?",
+        "triggerAfterHours": null,
+        "triggerAfterDays": 5,
+        "triggerAfterMinutes": null,
+        "triggerAfterCompletions": null,
+        "preferredTimeStart": null,
+        "preferredTimeEnd": null,
+        "condition": null,
+        "action": "request_review_if_positive"
+      },
+      "category": "engagement"
+    }
+  ],
+  "remoteConfigURL": null
+}
