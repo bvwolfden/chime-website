@@ -3,283 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support - Chime</title>
+    <title>Support — Clann</title>
+    <meta name="description" content="Get help with Clann — setup, location sharing, screen time, invites, and privacy. Contact support@prvail.ai.">
+    <meta name="theme-color" content="#0F3D34">
+    <link rel="icon" type="image/png" href="assets/mark.png">
+    <link rel="apple-touch-icon" href="assets/favicon-180.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --ink:#0F3D34; --green:#3A6B57; --sage:#7BAE9F; --cream:#EADBC8;
+            --paper:#F6F7F2; --coral:#F28D7D; --white:#fff; --muted:#5C6E67; --line:#E2E6DF;
+            --shadow-sm: 0 8px 24px -12px rgba(15,61,52,.25);
         }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #000000;
-            color: #FFFFFF;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-        
-        header {
-            margin-bottom: 40px;
-        }
-        
-        h1 {
-            font-size: 36px;
-            font-weight: 300;
-            margin-bottom: 16px;
-            color: #FFFFFF;
-        }
-        
-        h2 {
-            font-size: 24px;
-            font-weight: 500;
-            margin-top: 40px;
-            margin-bottom: 16px;
-            color: #FFFFFF;
-        }
-        
-        h3 {
-            font-size: 18px;
-            font-weight: 500;
-            margin-top: 24px;
-            margin-bottom: 12px;
-            color: #CCCCCC;
-        }
-        
-        p, li {
-            color: #CCCCCC;
-            margin-bottom: 12px;
-        }
-        
-        ul {
-            margin-left: 24px;
-            margin-bottom: 16px;
-        }
-        
-        a {
-            color: #FF8E53;
-            text-decoration: none;
-        }
-        
-        a:hover {
-            text-decoration: underline;
-        }
-        
-        .section {
-            margin-bottom: 32px;
-        }
-        
-        .faq-item {
-            background: #1A1A1A;
-            border: 1px solid #2A2A2A;
-            padding: 24px;
-            margin-bottom: 16px;
-            border-radius: 12px;
-        }
-        
-        .faq-item h3 {
-            margin-top: 0;
-            color: #FFFFFF;
-        }
-        
-        .contact-box {
-            background: #1A1A1A;
-            border: 1px solid #2A2A2A;
-            padding: 32px;
-            border-radius: 16px;
-            text-align: center;
-            margin: 40px 0;
-        }
-        
-        .contact-box a {
-            display: inline-block;
-            padding: 16px 32px;
-            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
-            color: #FFFFFF;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 500;
-            margin-top: 16px;
-        }
-        
-        footer {
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid #2A2A2A;
-            text-align: center;
-            color: #888888;
-        }
-        
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #FF8E53;
-        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--paper); color:var(--ink); line-height:1.65; -webkit-font-smoothing:antialiased; }
+        h1,h2,h3 { font-family:'Fraunces',Georgia,serif; }
+        a { color:var(--green); }
+        .wrap { max-width: 820px; margin:0 auto; padding:0 24px; }
 
-        code {
-            background: #1A1A1A;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
-            color: #FF8E53;
-        }
+        header.site { position:sticky; top:0; z-index:50; background:rgba(246,247,242,.85); backdrop-filter:saturate(140%) blur(12px); border-bottom:1px solid var(--line); }
+        .nav { display:flex; align-items:center; justify-content:space-between; height:70px; max-width:1120px; margin:0 auto; padding:0 24px; }
+        .nav .brand img { height:32px; display:block; }
+        .nav a.back { text-decoration:none; color:var(--muted); font-weight:500; font-size:15px; }
+        .nav a.back:hover { color:var(--ink); }
+
+        .hero { text-align:center; padding: 60px 0 20px; }
+        .hero h1 { font-size: clamp(36px, 6vw, 54px); font-weight:500; letter-spacing:-0.015em; }
+        .hero p { color:var(--muted); font-size:18px; margin-top:14px; }
+
+        .contact-card { background:var(--ink); color:var(--paper); border-radius:24px; padding:34px; text-align:center; margin:36px 0 48px; box-shadow:var(--shadow-sm); }
+        .contact-card h2 { color:#fff; font-size:24px; font-weight:500; margin-bottom:8px; }
+        .contact-card p { color:rgba(246,247,242,.78); margin-bottom:20px; }
+        .contact-card a.btn { display:inline-flex; align-items:center; gap:8px; background:var(--paper); color:var(--ink); text-decoration:none; font-weight:600; padding:13px 24px; border-radius:13px; transition:transform .16s; }
+        .contact-card a.btn:hover { transform:translateY(-2px); }
+
+        section.s { margin-bottom:44px; }
+        section.s > h2 { font-size:15px; letter-spacing:.06em; text-transform:uppercase; color:var(--sage); font-family:'Inter',sans-serif; font-weight:700; margin-bottom:20px; }
+
+        details.faq { background:var(--white); border:1px solid var(--line); border-radius:16px; margin-bottom:12px; overflow:hidden; transition:box-shadow .16s; }
+        details.faq[open] { box-shadow:var(--shadow-sm); }
+        details.faq summary { list-style:none; cursor:pointer; padding:20px 24px; font-size:17px; font-weight:600; color:var(--ink); display:flex; justify-content:space-between; align-items:center; gap:16px; }
+        details.faq summary::-webkit-details-marker { display:none; }
+        details.faq summary .plus { flex:0 0 auto; width:22px; height:22px; position:relative; }
+        details.faq summary .plus::before, details.faq summary .plus::after { content:''; position:absolute; background:var(--sage); border-radius:2px; }
+        details.faq summary .plus::before { top:10px; left:2px; width:18px; height:2px; }
+        details.faq summary .plus::after { left:10px; top:2px; width:2px; height:18px; transition:opacity .2s; }
+        details.faq[open] summary .plus::after { opacity:0; }
+        details.faq .body { padding:0 24px 22px; color:#3d4d47; }
+        details.faq .body p { margin-bottom:12px; }
+        details.faq .body p:last-child { margin-bottom:0; }
+        details.faq .body ul { margin:4px 0 12px 4px; padding-left:22px; }
+        details.faq .body li { margin-bottom:8px; }
+        details.faq .body strong { color:var(--ink); }
+
+        footer.site { border-top:1px solid var(--line); padding:40px 0; margin-top:20px; text-align:center; color:var(--muted); font-size:14px; }
+        footer.site a { color:var(--green); text-decoration:none; }
+        footer.site .fl { margin-bottom:12px; }
+        footer.site .fl a { margin:0 10px; font-weight:500; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="/" class="back-link">← Back to Home</a>
-        
-        <header>
-            <h1>Support</h1>
-            <p>Get help with Chime</p>
-        </header>
+    <header class="site">
+        <div class="nav">
+            <a class="brand" href="index.html" aria-label="Clann home"><img src="assets/logo-lockup.png" alt="Clann"></a>
+            <a class="back" href="index.html">← Back to home</a>
+        </div>
+    </header>
 
-        <div class="contact-box">
-            <h2 style="margin-top: 0;">Need Help?</h2>
-            <p>Email us and we'll get back to you within 24 hours</p>
-            <a href="mailto:support@prvail.ai?subject=Chime%20Support">Contact Support</a>
+    <main class="wrap">
+        <div class="hero">
+            <h1>How can we help?</h1>
+            <p>Everything you need to get your family set up on Clann.</p>
         </div>
 
-        <div class="section">
-            <h2>Frequently Asked Questions</h2>
-
-            <div class="faq-item">
-                <h3>How do I create a task with my voice?</h3>
-                <p>Tap the center icon in the bottom tab bar to open "Spill the Beans." Then tap the microphone icon and speak naturally. Say things like:</p>
-                <ul>
-                    <li>"Call mom tomorrow at 3pm"</li>
-                    <li>"Team meeting every Monday at 10am"</li>
-                    <li>"Buy groceries this weekend"</li>
-                </ul>
-                <p>Chime's AI will understand and create the perfect reminder.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>How do I use Quick Add?</h3>
-                <p>On the home screen, tap the text field and type or paste a task description. Chime will automatically detect dates and times. For example:</p>
-                <ul>
-                    <li>"Dentist appointment Friday at 2pm"</li>
-                    <li>"Weekly standup every Wednesday"</li>
-                </ul>
-                <p>Tap send and your task is created instantly.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>How do I edit a task?</h3>
-                <p>Simply tap anywhere on a task card to open the details view. From there you can:</p>
-                <ul>
-                    <li>Change the title and notes</li>
-                    <li>Set or modify the reminder time</li>
-                    <li>Configure recurring schedules</li>
-                    <li>Change the focus tag (Personal/Work)</li>
-                    <li>Mark as complete or delete</li>
-                </ul>
-            </div>
-
-            <div class="faq-item">
-                <h3>How do recurring tasks work?</h3>
-                <p>When editing a task, you can set it to repeat:</p>
-                <ul>
-                    <li><strong>Hourly:</strong> Every X hours</li>
-                    <li><strong>Daily:</strong> Every day at a specific time</li>
-                    <li><strong>Weekly:</strong> Specific days of the week at a specific time</li>
-                </ul>
-                <p>The task will automatically reschedule after each completion or notification.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Can I snooze notifications?</h3>
-                <p>Yes! When a notification appears, you can:</p>
-                <ul>
-                    <li>Swipe or tap to snooze for your configured interval (default: 9 minutes)</li>
-                    <li>Mark as complete</li>
-                    <li>Tap to open the task details</li>
-                </ul>
-                <p>You can customize the snooze interval in the task details.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>How do I add widgets?</h3>
-                <p><strong>Home Screen Widgets:</strong></p>
-                <ol style="margin-left: 24px;">
-                    <li>Long press on your home screen</li>
-                    <li>Tap the + button in the top corner</li>
-                    <li>Search for "Chime"</li>
-                    <li>Choose a size (Small, Medium, or Large)</li>
-                    <li>Tap "Add Widget"</li>
-                </ol>
-                <p style="margin-top: 16px;"><strong>Lock Screen Widgets:</strong></p>
-                <ol style="margin-left: 24px;">
-                    <li>Long press on your lock screen</li>
-                    <li>Tap "Customize"</li>
-                    <li>Choose a widget area</li>
-                    <li>Search for "Chime"</li>
-                    <li>Add circular, rectangular, or inline widgets</li>
-                </ol>
-            </div>
-
-            <div class="faq-item">
-                <h3>Is my data private?</h3>
-                <p>Absolutely! All your tasks are stored locally on your device. We don't collect any personal information, and we don't track your usage.</p>
-                <p>The only time data leaves your device is when you use AI features—text is sent to OpenAI to process and create tasks, but we don't store it.</p>
-                <p><a href="/privacy">Read our full Privacy Policy →</a></p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Why does Chime need microphone permission?</h3>
-                <p>Microphone access is only used for the "Spill the Beans" voice feature. Your voice is transcribed on your device using Apple's Speech Recognition—we never record or store audio.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Does Chime work offline?</h3>
-                <p>Yes! All your existing tasks work offline. You can:</p>
-                <ul>
-                    <li>View and edit tasks</li>
-                    <li>Mark tasks complete</li>
-                    <li>Receive notifications</li>
-                    <li>Create tasks manually</li>
-                </ul>
-                <p>However, AI-powered task extraction (voice and Quick Add) requires an internet connection.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Can I export my tasks?</h3>
-                <p>Currently, Chime doesn't have an export feature. All tasks are stored locally on your device using Apple's secure storage.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Does Chime sync across devices?</h3>
-                <p>Not yet. In version 1.0, tasks remain on the device where you create them. iCloud sync may be added in a future update based on user feedback.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>What iOS version do I need?</h3>
-                <p>Chime requires iOS 18.0 or later. Some features like Live Activities require iOS 16.1+.</p>
-            </div>
+        <div class="contact-card">
+            <h2>Talk to a human</h2>
+            <p>Can't find your answer below? Email us — we read every message.</p>
+            <a class="btn" href="mailto:support@prvail.ai?subject=Clann%20Support">✉️ support@prvail.ai</a>
         </div>
 
-        <div class="section">
-            <h2>Still Need Help?</h2>
-            <p>If you couldn't find what you're looking for, we're here to help!</p>
-            <p>Email us at <a href="mailto:support@prvail.ai">support@prvail.ai</a> with:</p>
-            <ul>
-                <li>Your iOS version</li>
-                <li>A description of the issue</li>
-                <li>Screenshots (if applicable)</li>
-            </ul>
-            <p>We typically respond within 24 hours.</p>
-        </div>
+        <section class="s">
+            <h2>Getting started</h2>
 
-        <footer>
-            <p><a href="/">Home</a> · <a href="/privacy">Privacy Policy</a></p>
-            <p style="margin-top: 20px;">© 2024 Chime. All rights reserved.</p>
-        </footer>
-    </div>
+            <details class="faq" open>
+                <summary>How do I set up Clann for my family?<span class="plus"></span></summary>
+                <div class="body">
+                    <p>Setup takes just a few minutes:</p>
+                    <ul>
+                        <li>Download Clann on the parent's iPhone and sign in with your Apple Account.</li>
+                        <li>Create your family, then send an invite to each family member.</li>
+                        <li>On each person's phone, open the invite to join and choose their location-sharing preference.</li>
+                        <li>For a child's device, follow the on-screen prompts to enable location and (optionally) Screen Time controls.</li>
+                    </ul>
+                    <p>Once everyone has joined, you'll see the whole family on your map.</p>
+                </div>
+            </details>
+
+            <details class="faq">
+                <summary>How do family invites work?<span class="plus"></span></summary>
+                <div class="body">
+                    <p>From the app, tap to invite a family member and share the link or code with them. When they open it on their iPhone, Clann connects their device to your family automatically. Invites are private to your family and can be managed from the app.</p>
+                </div>
+            </details>
+
+            <details class="faq">
+                <summary>Which devices does Clann support?<span class="plus"></span></summary>
+                <div class="body">
+                    <p>Clann is built for iPhone. Location sharing and parental controls rely on Apple frameworks that are available on modern versions of iOS. For the best experience, keep everyone's device on a recent iOS version.</p>
+                </div>
+            </details>
+        </section>
+
+        <section class="s">
+            <h2>Location &amp; places</h2>
+
+            <details class="faq">
+                <summary>Why does Clann need "Always" location access?<span class="plus"></span></summary>
+                <div class="body">
+                    <p>To show live location and notify your family when someone arrives at or leaves a place, iOS requires background ("Always") location permission. Without it, locations only update while the app is open, and arrival alerts won't fire reliably.</p>
+                    <p>You can review or change this anytime in <strong>Settings → Privacy &amp; Security → Location Services → Clann</strong>.</p>
+                </div>
+            </details>
+
+            <details class="faq">
+                <summary>Someone's location looks old or isn't updating<span class="plus"></span></summary>
+                <div class="body">
+                    <p>A stale location is almost always a device or permission issue on <em>that</em> person's phone. Check that, on their device:</p>
+                    <ul>
+                        <li>Clann's location permission is set to <strong>Always</strong> and <strong>Precise Location</strong> is on.</li>
+                        <li>Location Services is enabled and the phone has signal and battery.</li>
+                        <li>They're actively sharing their location in the app.</li>
+                    </ul>
+                    <p>Opening Clann on their phone will refresh their position right away.</p>
+                </div>
+            </details>
+
+            <details class="faq">
+                <summary>How do I add a place like home or school?<span class="plus"></span></summary>
+                <div class="body">
+                    <p>Open the <strong>Places</strong> tab, add a location, and give it a name. Clann will let the family know when someone arrives at or leaves that place. You can adjust the area for each place so alerts trigger where you want them.</p>
+                </div>
+            </details>
+
+            <details class="faq">
+                <summary>Can I stop sharing my location?<span class="plus"></span></summary>
+                <div class="body">
+                    <p>Yes. Every family member controls their own sharing and can turn it off at any time. When you're not sharing, your location isn't collected, and your family will see that you're not currently sharing.</p>
+                </div>
+            </details>
+        </section>
+
+        <section class="s">
+            <h2>Screen Time &amp; parental controls</h2>
+
+            <details class="faq">
+                <summary>How do I set screen-time limits for my child?<span class="plus"></span></summary>
+                <div class="body">
+                    <p>On the parent device, open your child's controls and set app or category limits, bedtime, and downtime. On the child's device, you'll approve Apple's Screen Time permission once (Family Controls). After that, Clann applies the limits and shows a calm block screen when one is reached.</p>
+                </div>
+            </details>
+
+            <details class="faq">
+                <summary>My child asked for more time — how do I approve it?<span class="plus"></span></summary>
+                <div class="body">
+                    <p>When your child taps "ask for more time," you'll get a notification. You can approve a set amount right from the notification or the app — no need to be on their device. The extra time applies to their phone within moments.</p>
+                </div>
+            </details>
+
+            <details class="faq">
+                <summary>The block screen or a limit isn't behaving as expected<span class="plus"></span></summary>
+                <div class="body">
+                    <p>Make sure the child's device has completed the Screen Time (Family Controls) setup and is signed in to iCloud with the child's own Apple Account. If usage or limits look off after restoring a phone from backup, re-check that iCloud sign-in — it's the most common cause. Still stuck? Email <a href="mailto:support@prvail.ai?subject=Clann%20Screen%20Time">support@prvail.ai</a> and describe what you're seeing.</p>
+                </div>
+            </details>
+        </section>
+
+        <section class="s">
+            <h2>Account &amp; privacy</h2>
+
+            <details class="faq">
+                <summary>Is my family's data private?<span class="plus"></span></summary>
+                <div class="body">
+                    <p>Yes. Your family's location and controls are shared only within your family. We don't sell your data, show ads, or use third-party trackers. Read the full <a href="privacy.html">Privacy Policy</a> for details.</p>
+                </div>
+            </details>
+
+            <details class="faq">
+                <summary>How do I delete my account or data?<span class="plus"></span></summary>
+                <div class="body">
+                    <p>You can remove family members and delete your account from within the app. Deleting your account removes your associated personal data (aside from limited records we may be legally required to keep). Prefer we handle it? Email <a href="mailto:support@prvail.ai?subject=Clann%20Delete%20My%20Data">support@prvail.ai</a>.</p>
+                </div>
+            </details>
+
+            <details class="faq">
+                <summary>How do I leave a family?<span class="plus"></span></summary>
+                <div class="body">
+                    <p>Open the app, go to your family settings, and choose to leave. Once you leave, you'll no longer share location with that family or appear on their map.</p>
+                </div>
+            </details>
+        </section>
+
+        <section class="s">
+            <h2>Still need help?</h2>
+            <details class="faq">
+                <summary>Contact support<span class="plus"></span></summary>
+                <div class="body">
+                    <p>Email <a href="mailto:support@prvail.ai?subject=Clann%20Support">support@prvail.ai</a> with a short description of what's happening and which device (parent or child) it's on. If it's about location or screen time, letting us know the iOS version helps us help you faster.</p>
+                </div>
+            </details>
+        </section>
+    </main>
+
+    <footer class="site">
+        <div class="wrap">
+            <div class="fl"><a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="mailto:support@prvail.ai">Contact</a></div>
+            <div>© 2026 Clann. All rights reserved.</div>
+        </div>
+    </footer>
 </body>
 </html>
-

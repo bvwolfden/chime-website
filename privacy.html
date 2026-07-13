@@ -3,268 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Chime</title>
+    <title>Privacy Policy — Clann</title>
+    <meta name="description" content="How Clann collects, uses, and protects your family's information — including location and parental-controls data.">
+    <meta name="theme-color" content="#0F3D34">
+    <link rel="icon" type="image/png" href="assets/mark.png">
+    <link rel="apple-touch-icon" href="assets/favicon-180.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --ink:#0F3D34; --green:#3A6B57; --sage:#7BAE9F; --cream:#EADBC8;
+            --paper:#F6F7F2; --coral:#F28D7D; --white:#fff; --muted:#5C6E67; --line:#E2E6DF;
+            --shadow-sm: 0 8px 24px -12px rgba(15,61,52,.25);
         }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #000000;
-            color: #FFFFFF;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-        
-        header {
-            margin-bottom: 40px;
-        }
-        
-        h1 {
-            font-size: 36px;
-            font-weight: 300;
-            margin-bottom: 8px;
-            color: #FFFFFF;
-        }
-        
-        .last-updated {
-            color: #888888;
-            font-size: 14px;
-        }
-        
-        h2 {
-            font-size: 24px;
-            font-weight: 500;
-            margin-top: 40px;
-            margin-bottom: 16px;
-            color: #FFFFFF;
-        }
-        
-        h3 {
-            font-size: 18px;
-            font-weight: 500;
-            margin-top: 24px;
-            margin-bottom: 12px;
-            color: #CCCCCC;
-        }
-        
-        p, li {
-            color: #CCCCCC;
-            margin-bottom: 12px;
-        }
-        
-        ul {
-            margin-left: 24px;
-            margin-bottom: 16px;
-        }
-        
-        a {
-            color: #FF8E53;
-            text-decoration: none;
-        }
-        
-        a:hover {
-            text-decoration: underline;
-        }
-        
-        .section {
-            margin-bottom: 32px;
-        }
-        
-        .highlight {
-            background: #1A1A1A;
-            border-left: 3px solid #FF8E53;
-            padding: 20px;
-            margin: 24px 0;
-            border-radius: 8px;
-        }
-        
-        footer {
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid #2A2A2A;
-            text-align: center;
-            color: #888888;
-        }
-        
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #FF8E53;
-        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--paper); color:var(--ink); line-height:1.65; -webkit-font-smoothing:antialiased; }
+        h1,h2,h3 { font-family:'Fraunces',Georgia,serif; }
+        a { color:var(--green); }
+        .wrap { max-width: 820px; margin:0 auto; padding:0 24px; }
+
+        header.site { position:sticky; top:0; z-index:50; background:rgba(246,247,242,.85); backdrop-filter:saturate(140%) blur(12px); border-bottom:1px solid var(--line); }
+        .nav { display:flex; align-items:center; justify-content:space-between; height:70px; max-width:1120px; margin:0 auto; padding:0 24px; }
+        .nav .brand img { height:32px; display:block; }
+        .nav a.back { text-decoration:none; color:var(--muted); font-weight:500; font-size:15px; }
+        .nav a.back:hover { color:var(--ink); }
+
+        .doc { padding: 56px 0 40px; }
+        .doc-head { border-bottom:1px solid var(--line); padding-bottom:28px; margin-bottom:36px; }
+        .doc-head h1 { font-size: clamp(34px, 6vw, 50px); font-weight:500; letter-spacing:-0.015em; line-height:1.05; }
+        .doc-head .updated { color:var(--muted); font-size:14px; margin-top:12px; }
+
+        .summary { background:var(--white); border:1px solid var(--line); border-left:4px solid var(--sage); border-radius:16px; padding:24px 26px; margin-bottom:40px; box-shadow:var(--shadow-sm); }
+        .summary h2 { font-size:19px; font-weight:600; margin-bottom:10px; }
+        .summary p { color:var(--muted); font-size:15.5px; }
+        .summary p + p { margin-top:10px; }
+
+        .toc { background:rgba(123,174,159,.09); border-radius:16px; padding:22px 26px; margin-bottom:44px; }
+        .toc h2 { font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--sage); font-family:'Inter',sans-serif; font-weight:700; margin-bottom:14px; }
+        .toc ol { list-style:none; counter-reset:toc; columns:2; column-gap:32px; }
+        .toc li { counter-increment:toc; margin-bottom:9px; break-inside:avoid; }
+        .toc li a { text-decoration:none; color:var(--ink); font-size:14.5px; font-weight:500; }
+        .toc li a:hover { color:var(--green); }
+        .toc li a::before { content:counter(toc) ". "; color:var(--sage); font-weight:700; }
+        @media (max-width:560px){ .toc ol { columns:1; } }
+
+        section.s { margin-bottom:40px; scroll-margin-top:90px; }
+        section.s h2 { font-size:26px; font-weight:500; letter-spacing:-0.01em; margin-bottom:14px; }
+        section.s h3 { font-size:18px; font-weight:600; margin-top:24px; margin-bottom:8px; color:var(--ink); }
+        section.s p { color:#3d4d47; margin-bottom:14px; }
+        section.s ul { margin:0 0 16px 4px; padding-left:22px; }
+        section.s li { color:#3d4d47; margin-bottom:9px; }
+        section.s strong { color:var(--ink); font-weight:600; }
+        .callout { background:var(--white); border:1px solid var(--line); border-radius:14px; padding:18px 22px; margin:18px 0; font-size:15px; color:var(--muted); }
+        .callout strong { color:var(--ink); }
+
+        table.data { width:100%; border-collapse:collapse; margin:14px 0 20px; font-size:14.5px; }
+        table.data th, table.data td { text-align:left; padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+        table.data th { background:rgba(123,174,159,.1); font-weight:600; color:var(--ink); }
+        table.data td:first-child { font-weight:600; color:var(--ink); white-space:nowrap; }
+        .table-scroll { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+
+        footer.site { border-top:1px solid var(--line); padding:40px 0; margin-top:20px; text-align:center; color:var(--muted); font-size:14px; }
+        footer.site a { color:var(--green); text-decoration:none; }
+        footer.site .fl { margin-bottom:12px; }
+        footer.site .fl a { margin:0 10px; font-weight:500; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="/" class="back-link">← Back to Home</a>
-        
-        <header>
+    <header class="site">
+        <div class="nav">
+            <a class="brand" href="index.html" aria-label="Clann home"><img src="assets/logo-lockup.png" alt="Clann"></a>
+            <a class="back" href="index.html">← Back to home</a>
+        </div>
+    </header>
+
+    <main class="wrap doc">
+        <div class="doc-head">
             <h1>Privacy Policy</h1>
-            <p class="last-updated">Last Updated: November 12, 2024</p>
-        </header>
-
-        <div class="section">
-            <h2>Introduction</h2>
-            <p>Chime ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we handle information when you use our iOS application.</p>
+            <p class="updated">Last updated: July 13, 2026</p>
         </div>
 
-        <div class="highlight">
-            <h3>Quick Summary</h3>
-            <p><strong>Your privacy matters.</strong> Chime keeps your tasks on your device, uses AI only to help you create tasks, and doesn't track or sell your information.</p>
+        <div class="summary">
+            <h2>The short version</h2>
+            <p><strong>Clann is a family app, and your family's data belongs to your family.</strong> We collect location and device information only to make features like the family map, arrival alerts, and screen-time controls work.</p>
+            <p>We <strong>do not</strong> sell your data, show you ads, or share your information with data brokers or advertising networks. You control what you share, and you can delete your data at any time.</p>
         </div>
 
-        <div class="section">
-            <h2>Information We Do NOT Collect</h2>
-            <p>Chime is designed with privacy in mind. We do NOT:</p>
+        <nav class="toc" aria-label="Contents">
+            <h2>What's in this policy</h2>
+            <ol>
+                <li><a href="#who">Who we are</a></li>
+                <li><a href="#collect">Information we collect</a></li>
+                <li><a href="#use">How we use information</a></li>
+                <li><a href="#location">Location data</a></li>
+                <li><a href="#screentime">Screen Time &amp; parental controls</a></li>
+                <li><a href="#children">Children's privacy</a></li>
+                <li><a href="#sharing">How information is shared</a></li>
+                <li><a href="#providers">Service providers</a></li>
+                <li><a href="#retention">Data retention</a></li>
+                <li><a href="#security">Security</a></li>
+                <li><a href="#rights">Your choices &amp; rights</a></li>
+                <li><a href="#changes">Changes to this policy</a></li>
+                <li><a href="#contact">Contact us</a></li>
+            </ol>
+        </nav>
+
+        <section class="s" id="who">
+            <h2>1. Who we are</h2>
+            <p>Clann ("Clann," "we," "us," or "our") is a family location-sharing and parental-controls app for iPhone, operated by Brian Vukmir, an independent app developer based in the United States. This Privacy Policy explains what information the Clann app and its supporting services collect, how we use it, and the choices you have.</p>
+            <p>By creating a Clann family or joining one, you agree to the practices described here. If you do not agree, please do not use the app.</p>
+        </section>
+
+        <section class="s" id="collect">
+            <h2>2. Information we collect</h2>
+            <p>Clann is a connected service: to share locations between family members and enforce parental controls across devices, some information is processed on our servers. We collect only what the app's features need.</p>
+
+            <div class="table-scroll">
+            <table class="data">
+                <thead><tr><th>Category</th><th>What it includes</th><th>Why</th></tr></thead>
+                <tbody>
+                    <tr><td>Account</td><td>Your Sign in with Apple identifier and the name/email you choose to share (which may be an Apple private-relay address), your family membership, and your role (for example, parent or child).</td><td>To create your account and connect you to your family.</td></tr>
+                    <tr><td>Location</td><td>Precise device location (including in the background) for members who choose to share, saved places and their geofences, and arrival/departure and location-history events.</td><td>To power the family map, presence, and place alerts.</td></tr>
+                    <tr><td>Screen Time</td><td>For managed child devices: the limits, schedules, and rules a parent configures, plus usage summaries and app-block/"request more time" events. See <a href="#screentime">section 5</a>.</td><td>To apply and report on parental controls.</td></tr>
+                    <tr><td>Device</td><td>Device model, iOS version, app version and build number, a device identifier, and a push-notification (APNs) token.</td><td>To deliver notifications and family-control commands to the right device, and to keep the app reliable.</td></tr>
+                    <tr><td>Messages</td><td>In-app messages and requests between family members (for example, a child's request for more screen time and a parent's reply).</td><td>To deliver family communication features.</td></tr>
+                    <tr><td>Diagnostics</td><td>Reliability and telemetry event logs, and optional diagnostic bundles you or your device may send. These are minimized and stripped of unnecessary personal detail.</td><td>To detect and fix problems so location and controls stay dependable.</td></tr>
+                </tbody>
+            </table>
+            </div>
+
+            <p>We do <strong>not</strong> collect payment card numbers (any purchases are handled by Apple), and we do <strong>not</strong> use third-party advertising or analytics SDKs that track you across other apps and websites.</p>
+        </section>
+
+        <section class="s" id="use">
+            <h2>3. How we use information</h2>
             <ul>
-                <li>Collect any personal information</li>
-                <li>Store your tasks on our servers</li>
-                <li>Track your usage or behavior</li>
-                <li>Share your data with third parties</li>
-                <li>Use analytics or tracking services</li>
-                <li>Sell your information to anyone</li>
+                <li>To provide the app's core features — the family map, arrival and place alerts, screen-time limits, safe-driving summaries, and family messaging.</li>
+                <li>To deliver push notifications you've asked for (such as a child arriving home or a request for more time).</li>
+                <li>To keep the service secure, reliable, and working correctly, and to diagnose and fix problems.</li>
+                <li>To respond to your support requests.</li>
+                <li>To comply with the law, or to protect the safety, rights, or property of our users or the public where we reasonably believe it is necessary.</li>
             </ul>
-        </div>
+            <p>We do <strong>not</strong> use your family's information to build advertising profiles, and we do <strong>not</strong> sell or rent it to anyone.</p>
+        </section>
 
-        <div class="section">
-            <h2>Data Storage</h2>
-            <p>Your data is stored securely:</p>
+        <section class="s" id="location">
+            <h2>4. Location data</h2>
+            <p>Location is central to Clann, so we want to be clear about it:</p>
             <ul>
-                <li><strong>Tasks:</strong> All tasks, reminders, and notes are stored using Apple's SwiftData framework with iCloud sync. If you have iCloud enabled, your tasks sync across your Apple devices. If iCloud is disabled or unavailable, data is stored locally on your device only. We do not have access to your data in either case.</li>
-                <li><strong>Voice Recordings:</strong> Voice input is processed on-device using Apple's Speech Recognition. We do not record or store your voice</li>
-                <li><strong>Widgets:</strong> Widget data is shared between the app and widgets using Apple's App Groups</li>
+                <li><strong>Sharing is per-person.</strong> Each family member controls whether they share their location, and can stop sharing at any time. When a member isn't sharing, their location isn't collected.</li>
+                <li><strong>"Always" permission.</strong> To show live location and notify your family when someone arrives or leaves a place, iOS requires background ("Always") location access. You grant this in the iOS permission prompt and can change or revoke it anytime in <strong>Settings → Privacy &amp; Security → Location Services → Clann</strong>.</li>
+                <li><strong>Who can see it.</strong> A member's location is visible only to other members of the same Clann family, according to each person's sharing settings. It is not shared publicly or with anyone outside your family.</li>
+                <li><strong>History.</strong> Recent location and arrival/departure events are stored so the app can show timelines and presence. You can reduce what's kept by turning off sharing or removing a member.</li>
             </ul>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2>AI Task Processing</h2>
-            <p>When you use the "Spill the Beans" feature or Quick Add with AI:</p>
+        <section class="s" id="screentime">
+            <h2>5. Screen Time &amp; parental controls</h2>
+            <p>Clann's parental controls are built on Apple's <strong>Family Controls</strong>, <strong>Managed Settings</strong>, and <strong>Device Activity</strong> frameworks. A parent or guardian sets up these controls on a child's device with that device's consent through Apple's system prompts.</p>
             <ul>
-                <li>Your text is sent to OpenAI's servers to process and extract task information</li>
-                <li>We use OpenAI's API (GPT-4o-mini model) to understand natural language and create tasks</li>
-                <li>OpenAI processes this data according to their privacy policy: <a href="https://openai.com/privacy" target="_blank">https://openai.com/privacy</a></li>
-                <li>OpenAI does not use API data to train their models (as of their Enterprise privacy policy)</li>
-                <li>We do not store or log your conversations on our servers</li>
-                <li>The text you send is only used to create tasks and is not retained by us</li>
+                <li><strong>Apple keeps the raw data private.</strong> Detailed Screen Time information is provided to the app by Apple through opaque, on-device tokens. Chores like "which specific apps" are represented by tokens that are meaningful only on that device — we do not receive a browsable log of everything a child does on their phone.</li>
+                <li><strong>What we store.</strong> We store the controls a parent configures (limits, bedtime and downtime schedules, category rules), plus events needed to apply and report them — for example, that a limit was reached, that a block screen was shown, or that a child requested more time.</li>
+                <li><strong>Parents are in control.</strong> A parent can view, change, or remove these controls at any time in the app, and removing a child or deleting the family removes the associated settings.</li>
             </ul>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2>Permissions We Request</h2>
-            
-            <h3>Microphone Access</h3>
+        <section class="s" id="children">
+            <h2>6. Children's privacy</h2>
+            <p>Clann is designed to be set up and managed by a parent or guardian for their own family. It is not directed to children for independent sign-up, and we do not knowingly allow children to create their own accounts outside of a family a parent controls.</p>
             <ul>
-                <li><strong>Purpose:</strong> To enable voice input in the "Spill the Beans" feature</li>
-                <li><strong>Usage:</strong> Voice is transcribed on-device using Apple's Speech Recognition</li>
-                <li><strong>Data Handling:</strong> No voice recordings are stored or transmitted</li>
+                <li>A parent or guardian provides consent for, and manages, any child's participation in the family and the information associated with their device.</li>
+                <li>We collect a child's information only to provide the family-safety features the parent has enabled (such as location sharing and screen-time controls), and we do not use it for advertising or sell it.</li>
+                <li>A parent can review a child's information, stop collection by turning off features or removing the child, and request deletion at any time (see <a href="#rights">section 11</a>).</li>
             </ul>
+            <div class="callout"><strong>Questions about a child's data?</strong> Email <a href="mailto:support@prvail.ai?subject=Clann%20Children%27s%20Privacy">support@prvail.ai</a> and we'll help you review or delete it.</div>
+        </section>
 
-            <h3>Speech Recognition</h3>
+        <section class="s" id="sharing">
+            <h2>7. How information is shared</h2>
+            <p>We share information only in these limited ways:</p>
             <ul>
-                <li><strong>Purpose:</strong> To convert your voice to text for task creation</li>
-                <li><strong>Usage:</strong> Processing happens on your device using Apple's Speech framework</li>
-                <li><strong>Data Handling:</strong> Transcribed text is processed locally or sent to OpenAI API for task extraction</li>
+                <li><strong>Within your family.</strong> Location, presence, and controls are shared among members of your Clann family according to each person's settings and role. That's the point of the app.</li>
+                <li><strong>Service providers.</strong> With the infrastructure and platform providers that help us run Clann, described in <a href="#providers">section 8</a>. They may only process data on our behalf to provide their service.</li>
+                <li><strong>Legal &amp; safety.</strong> When we reasonably believe disclosure is required by law, or is necessary to protect the safety, rights, or property of our users or others.</li>
+                <li><strong>Business transfer.</strong> If Clann is ever involved in a merger, acquisition, or sale of assets, information may transfer as part of that transaction; we'll require the successor to honor this policy.</li>
             </ul>
+            <p>We do <strong>not</strong> sell your personal information, and we do <strong>not</strong> share it with advertising networks or data brokers.</p>
+        </section>
 
-            <h3>Notifications</h3>
+        <section class="s" id="providers">
+            <h2>8. Service providers</h2>
+            <p>Clann relies on a small number of trusted providers:</p>
             <ul>
-                <li><strong>Purpose:</strong> To deliver reminders for your scheduled tasks</li>
-                <li><strong>Usage:</strong> Notifications are scheduled locally on your device</li>
-                <li><strong>Data Handling:</strong> Notification content stays on your device</li>
+                <li><strong>Apple.</strong> Sign in with Apple (authentication), Apple Push Notification service (notifications), Family Controls / Device Activity (parental controls), and MapKit (maps). Apple's handling of this data is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>.</li>
+                <li><strong>Cloud hosting.</strong> Our servers and database run on cloud infrastructure (Railway) located in the United States, which stores and processes the data described above on our behalf.</li>
             </ul>
-        </div>
+            <p>We keep this list intentionally short and will update it here if it changes.</p>
+        </section>
 
-        <div class="section">
-            <h2>Third-Party Services</h2>
-            
-            <h3>OpenAI API</h3>
-            <p>We use OpenAI's API to process natural language and extract task information. When you use AI features:</p>
+        <section class="s" id="retention">
+            <h2>9. Data retention</h2>
             <ul>
-                <li>Text you provide is sent to OpenAI's servers</li>
-                <li>OpenAI processes this data according to their privacy policy</li>
-                <li>OpenAI's API does not use your data for model training</li>
-                <li>We do not combine this data with any personal identifiers</li>
+                <li>We keep your account and family data for as long as your account is active.</li>
+                <li>Location history and event data are retained to power timelines and presence, and are pruned over time; turning off sharing or removing a member reduces what remains.</li>
+                <li>Diagnostic and telemetry data is retained only for a limited period to troubleshoot and improve reliability.</li>
+                <li>When you delete your account (or a family is deleted), we delete or de-identify the associated personal data, except where we must retain limited records to comply with legal obligations.</li>
             </ul>
-            <p>For more information, see OpenAI's privacy policy: <a href="https://openai.com/privacy" target="_blank">https://openai.com/privacy</a></p>
+        </section>
 
-            <h3>Apple Services</h3>
-            <p>Chime uses standard Apple frameworks and services:</p>
+        <section class="s" id="security">
+            <h2>10. Security</h2>
+            <p>We protect your information with industry-standard safeguards:</p>
             <ul>
-                <li><strong>SwiftData:</strong> For local data storage on your device</li>
-                <li><strong>Speech Recognition:</strong> For on-device voice transcription</li>
-                <li><strong>UserNotifications:</strong> For scheduling reminders</li>
-                <li><strong>WidgetKit:</strong> For home screen widgets</li>
+                <li>Data is encrypted in transit using TLS between the app and our servers.</li>
+                <li>Access to production systems and data is restricted to what's necessary to operate the service.</li>
+                <li>On-device data is protected by your device's own security (passcode, Face ID, or Touch ID).</li>
             </ul>
-            <p>All Apple services are governed by Apple's privacy policy: <a href="https://www.apple.com/privacy" target="_blank">https://www.apple.com/privacy</a></p>
-        </div>
+            <p>No method of transmission or storage is ever 100% secure, but we work to protect your family's information and to respond promptly if a problem occurs.</p>
+        </section>
 
-        <div class="section">
-            <h2>Data Security</h2>
+        <section class="s" id="rights">
+            <h2>11. Your choices &amp; rights</h2>
             <ul>
-                <li>All data is stored locally on your device using Apple's encrypted storage</li>
-                <li>We do not have access to your data</li>
-                <li>Your data is protected by your device's security features (passcode, Face ID, Touch ID)</li>
-                <li>If you delete the app, all data is permanently removed from your device</li>
+                <li><strong>Location.</strong> Turn sharing on or off in the app, or change location permission in iOS Settings at any time.</li>
+                <li><strong>Notifications.</strong> Manage or turn off notifications in iOS Settings → Notifications → Clann.</li>
+                <li><strong>Access &amp; deletion.</strong> You can remove family members, and you can delete your account and associated data from within the app or by contacting us.</li>
+                <li><strong>Regional rights.</strong> Depending on where you live (for example, under U.S. state privacy laws or the GDPR), you may have rights to access, correct, delete, or restrict the use of your personal information. We honor these rights — contact us to make a request, and we will not discriminate against you for exercising them.</li>
             </ul>
-        </div>
+            <div class="callout">To make a privacy request, email <a href="mailto:support@prvail.ai?subject=Clann%20Privacy%20Request">support@prvail.ai</a>. We may need to verify your identity before acting on a request.</div>
+        </section>
 
-        <div class="section">
-            <h2>iCloud Sync</h2>
-            <p>Chime uses Apple's iCloud to sync your tasks across your devices if you have iCloud enabled. This sync is:</p>
-            <ul>
-                <li><strong>Private:</strong> Only you can access your data</li>
-                <li><strong>Encrypted:</strong> Protected by Apple's security</li>
-                <li><strong>Optional:</strong> Works locally if iCloud is disabled</li>
-                <li><strong>Managed by Apple:</strong> We don't control or access your iCloud data</li>
-            </ul>
-            <p>iCloud sync is governed by Apple's privacy policy: <a href="https://www.apple.com/privacy" target="_blank">https://www.apple.com/privacy</a></p>
-        </div>
+        <section class="s" id="changes">
+            <h2>12. Changes to this policy</h2>
+            <p>We may update this Privacy Policy as the app evolves. When we do, we'll revise the "Last updated" date above, and for significant changes we'll provide additional notice in the app. Your continued use of Clann after an update means you accept the revised policy.</p>
+        </section>
 
-        <div class="section">
-            <h2>Children's Privacy</h2>
-            <p>Chime does not knowingly collect information from children under 13. The app is not directed at children.</p>
-        </div>
+        <section class="s" id="contact">
+            <h2>13. Contact us</h2>
+            <p>Questions, concerns, or requests about your privacy? We'd genuinely like to hear from you.</p>
+            <p><strong>Email:</strong> <a href="mailto:support@prvail.ai?subject=Clann%20Privacy">support@prvail.ai</a><br>
+            <strong>Operator:</strong> Brian Vukmir (Clann), United States</p>
+        </section>
+    </main>
 
-        <div class="section">
-            <h2>Your Rights</h2>
-            <p>Since we don't collect or store your personal data:</p>
-            <ul>
-                <li>You own all your task data</li>
-                <li>Your data stays on your device</li>
-                <li>Deleting the app permanently removes all data</li>
-                <li>No data is retained on our servers</li>
-            </ul>
+    <footer class="site">
+        <div class="wrap">
+            <div class="fl"><a href="index.html">Home</a> · <a href="support.html">Support</a> · <a href="mailto:support@prvail.ai">Contact</a></div>
+            <div>© 2026 Clann. All rights reserved.</div>
         </div>
-
-        <div class="section">
-            <h2>Changes to This Policy</h2>
-            <p>We may update this Privacy Policy from time to time. We will notify you of any changes by:</p>
-            <ul>
-                <li>Updating the "Last Updated" date at the top</li>
-                <li>Providing notice in the app (for significant changes)</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>Contact Us</h2>
-            <p>If you have questions about this Privacy Policy, please contact us:</p>
-            <p><strong>Email:</strong> <a href="mailto:support@prvail.ai">support@prvail.ai</a><br>
-            <strong>Subject Line:</strong> Chime Privacy Question</p>
-        </div>
-
-        <footer>
-            <p><a href="/">Back to Home</a> · <a href="/support">Support</a></p>
-            <p style="margin-top: 20px;">© 2024 Chime. All rights reserved.</p>
-        </footer>
-    </div>
+    </footer>
 </body>
 </html>
-

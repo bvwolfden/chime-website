@@ -3,169 +3,609 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chime - AI Task Reminders</title>
+    <title>Clann — Your family, connected.</title>
+    <meta name="description" content="Clann keeps your family close — live location, arrival alerts, healthy screen time, and safe-driving peace of mind, all in one calm, private app.">
+    <meta name="theme-color" content="#0F3D34">
+
+    <!-- Open Graph / social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Clann — Your family, connected.">
+    <meta property="og:description" content="Live location, arrival alerts, healthy screen time, and safe-driving peace of mind — one calm, private app for your whole family.">
+    <meta property="og:url" content="https://prvail.ai">
+    <meta property="og:image" content="https://prvail.ai/assets/hero-illustration.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" type="image/png" href="assets/mark.png">
+    <link rel="apple-touch-icon" href="assets/favicon-180.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --ink: #0F3D34;      /* deep green — primary text */
+            --green: #3A6B57;    /* brand green */
+            --sage: #7BAE9F;     /* soft sage */
+            --cream: #EADBC8;    /* warm cream */
+            --paper: #F6F7F2;    /* off-white background */
+            --lilac: #A78BFA;    /* accent */
+            --coral: #F28D7D;    /* accent */
+            --white: #FFFFFF;
+            --muted: #5C6E67;    /* muted body text */
+            --line: #E2E6DF;     /* hairlines */
+            --shadow: 0 20px 50px -20px rgba(15, 61, 52, 0.28);
+            --shadow-sm: 0 8px 24px -12px rgba(15, 61, 52, 0.25);
+            --radius: 22px;
         }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #000000;
-            color: #FFFFFF;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--paper);
+            color: var(--ink);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
+
+        h1, h2, h3, .display { font-family: 'Fraunces', Georgia, 'Times New Roman', serif; }
+
+        a { color: inherit; }
+
+        .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+        /* ---------- Buttons ---------- */
+        .btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 14px 24px; border-radius: 14px;
+            font-weight: 600; font-size: 16px; text-decoration: none;
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+            cursor: pointer; border: none;
         }
-        
-        header {
-            text-align: center;
-            margin-bottom: 60px;
+        .btn-primary { background: var(--ink); color: var(--paper); box-shadow: var(--shadow-sm); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+        .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
+        .btn-ghost:hover { border-color: var(--sage); background: rgba(123,174,159,.08); }
+        .btn .apple { width: 20px; height: 20px; fill: currentColor; }
+        .btn small { display:block; font-size: 11px; font-weight: 500; opacity:.75; line-height:1; margin-bottom:2px; }
+        .btn .store-txt { font-size: 17px; font-weight: 600; line-height:1; }
+
+        /* ---------- Header ---------- */
+        header.site {
+            position: sticky; top: 0; z-index: 50;
+            background: rgba(246, 247, 242, 0.82);
+            backdrop-filter: saturate(140%) blur(12px);
+            border-bottom: 1px solid var(--line);
         }
-        
-        h1 {
-            font-size: 48px;
-            font-weight: 300;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .brand img { height: 34px; display: block; }
+        .nav-links { display: flex; align-items: center; gap: 30px; }
+        .nav-links a { text-decoration: none; font-weight: 500; font-size: 15px; color: var(--muted); transition: color .15s; }
+        .nav-links a:hover { color: var(--ink); }
+        .nav-cta { padding: 10px 18px; border-radius: 12px; background: var(--ink); color: var(--paper) !important; font-weight: 600; }
+        .nav-cta:hover { color: var(--paper); }
+        @media (max-width: 760px) { .nav-links a:not(.nav-cta) { display: none; } }
+
+        /* ---------- Hero ---------- */
+        .hero { position: relative; overflow: hidden; }
+        .hero-illu {
+            position: absolute; inset: 0; z-index: 0;
+            background: url('assets/hero-illustration.png') center 30% / cover no-repeat;
+            opacity: .5;
+            -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,0) 92%);
+                    mask-image: linear-gradient(180deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,0) 92%);
         }
-        
-        .tagline {
-            font-size: 20px;
-            font-weight: 300;
-            color: #888888;
+        .hero-inner {
+            position: relative; z-index: 1;
+            display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center;
+            padding: 84px 0 96px;
         }
-        
-        .hero {
-            text-align: center;
-            margin: 60px 0;
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+            color: var(--green); background: rgba(123,174,159,.16);
+            padding: 7px 14px; border-radius: 999px; margin-bottom: 22px;
         }
-        
-        .hero h2 {
-            font-size: 36px;
-            font-weight: 300;
-            margin-bottom: 20px;
-            color: #FFFFFF;
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 68px); font-weight: 500; line-height: 1.02;
+            letter-spacing: -0.015em; margin-bottom: 20px;
         }
-        
-        .hero p {
-            font-size: 18px;
-            color: #CCCCCC;
-            margin-bottom: 30px;
+        .hero h1 .em { color: var(--green); font-style: italic; }
+        .hero .lede { font-size: 19px; color: var(--muted); max-width: 30em; margin-bottom: 32px; }
+        .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .hero-note { margin-top: 18px; font-size: 14px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+        .hero-note svg { width: 16px; height: 16px; fill: var(--sage); }
+
+        @media (max-width: 900px) {
+            .hero-inner { grid-template-columns: 1fr; gap: 40px; padding: 56px 0 64px; text-align: center; }
+            .hero .lede { margin-left: auto; margin-right: auto; }
+            .hero-actions, .hero-note { justify-content: center; }
+            .hero-illu { opacity: .32; }
         }
-        
-        .cta {
-            display: inline-block;
-            padding: 16px 32px;
-            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
-            color: #FFFFFF;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 500;
-            transition: transform 0.2s;
+
+        /* ---------- Phone device ---------- */
+        .device-col { display: flex; justify-content: center; }
+        .device {
+            width: 300px; max-width: 82vw; aspect-ratio: 300 / 620;
+            background: #10231d; border-radius: 44px; padding: 12px;
+            box-shadow: var(--shadow); position: relative;
         }
-        
-        .cta:hover {
-            transform: scale(1.05);
+        .device .notch {
+            position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+            width: 116px; height: 26px; background: #10231d; border-radius: 0 0 16px 16px; z-index: 3;
         }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin: 60px 0;
+        .screen {
+            width: 100%; height: 100%; border-radius: 33px; overflow: hidden;
+            background: var(--paper); display: flex; flex-direction: column; position: relative;
         }
-        
-        .feature {
-            padding: 30px;
-            background: #1A1A1A;
-            border: 1px solid #2A2A2A;
-            border-radius: 16px;
+        .screen .statusbar { height: 30px; display:flex; align-items:center; justify-content:space-between; padding: 6px 22px 0; font-size: 12px; font-weight: 600; color: var(--ink); }
+        .map-area { position: relative; flex: 1 1 auto; min-height: 0; }
+        .map-area svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+        .mini-logo { position: absolute; top: 10px; left: 14px; display:flex; align-items:center; gap:6px; z-index:2; }
+        .mini-logo img { height: 20px; }
+        .pin {
+            position: absolute; z-index: 2; transform: translate(-50%, -100%);
+            display: flex; flex-direction: column; align-items: center;
         }
-        
-        .feature h3 {
-            font-size: 20px;
-            font-weight: 500;
-            margin-bottom: 12px;
-            color: #FFFFFF;
+        .pin .dot {
+            width: 34px; height: 34px; border-radius: 50%; color: #fff;
+            display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700;
+            box-shadow: 0 6px 14px -4px rgba(0,0,0,.45); border: 2.5px solid #fff;
         }
-        
-        .feature p {
-            font-size: 16px;
-            color: #CCCCCC;
+        .pin .stem { width: 3px; height: 8px; background: #fff; margin-top: -1px; border-radius: 2px; box-shadow: 0 2px 4px rgba(0,0,0,.2); }
+
+        .sheet {
+            background: var(--white); border-radius: 22px 22px 33px 33px; margin-top: -22px; z-index: 4; position: relative;
+            padding: 12px 16px 8px; box-shadow: 0 -8px 24px -16px rgba(15,61,52,.3);
         }
-        
-        footer {
-            text-align: center;
-            margin-top: 80px;
-            padding-top: 40px;
-            border-top: 1px solid #2A2A2A;
-            color: #888888;
+        .grabber { width: 38px; height: 5px; border-radius: 3px; background: #E2E6DF; margin: 0 auto 10px; }
+        .sheet-head { display:flex; align-items:center; justify-content:space-between; margin-bottom: 10px; }
+        .sheet-head b { font-size: 15px; }
+        .chip { font-size: 10px; font-weight: 600; color: var(--green); background: rgba(123,174,159,.18); padding: 4px 9px; border-radius: 999px; }
+        .m-row { display:flex; align-items:center; gap: 10px; padding: 7px 0; }
+        .m-av { width: 30px; height: 30px; border-radius: 50%; color:#fff; font-size: 11px; font-weight: 700; display:flex; align-items:center; justify-content:center; flex: 0 0 auto; }
+        .m-name { font-size: 13px; font-weight: 600; color: var(--ink); line-height: 1.15; }
+        .m-sub { font-size: 11px; color: var(--muted); line-height: 1.2; }
+        .m-bat { margin-left: auto; font-size: 11px; font-weight: 600; color: var(--muted); }
+        .m-bat.low { color: var(--coral); }
+        .tabbar { display:flex; align-items:center; justify-content: space-around; padding: 8px 6px 4px; }
+        .tab { display:flex; flex-direction:column; align-items:center; gap:3px; font-size: 9px; color: #9AA6A0; font-weight: 500; }
+        .tab svg { width: 18px; height: 18px; fill: #9AA6A0; }
+        .tab.active { color: var(--green); } .tab.active svg { fill: var(--green); }
+        .tab.center svg { width: 40px; height: 40px; margin-top: -14px; fill: var(--green); }
+
+        /* ---------- Section scaffolding ---------- */
+        section { padding: 72px 0; }
+        .sec-head { text-align: center; max-width: 640px; margin: 0 auto 52px; }
+        .sec-head .kicker { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--sage); margin-bottom: 14px; }
+        .sec-head h2 { font-size: clamp(30px, 4.4vw, 46px); font-weight: 500; letter-spacing: -0.01em; line-height: 1.08; }
+        .sec-head p { font-size: 18px; color: var(--muted); margin-top: 16px; }
+
+        /* ---------- Feature icon tiles ---------- */
+        .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+        @media (max-width: 860px) { .features { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 540px) { .features { grid-template-columns: 1fr; } }
+        .fcard {
+            background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+            padding: 30px 26px; transition: transform .18s, box-shadow .18s;
         }
-        
-        footer a {
-            color: #FF8E53;
-            text-decoration: none;
+        .fcard:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+        .tile {
+            width: 54px; height: 54px; border-radius: 16px; background: var(--cream);
+            display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
         }
-        
-        footer a:hover {
-            text-decoration: underline;
+        .tile svg { width: 28px; height: 28px; fill: none; stroke: var(--green); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+        .fcard h3 { font-size: 20px; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.01em; }
+        .fcard p { font-size: 15px; color: var(--muted); }
+
+        /* ---------- Alternating detail rows ---------- */
+        .detail { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+        .detail.rev .detail-media { order: -1; }
+        @media (max-width: 880px) { .detail { grid-template-columns: 1fr; gap: 32px; } .detail.rev .detail-media { order: 0; } }
+        .detail .kicker { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--sage); margin-bottom: 14px; }
+        .detail h2 { font-size: clamp(28px, 3.6vw, 40px); font-weight: 500; letter-spacing: -0.01em; line-height: 1.1; margin-bottom: 18px; }
+        .detail p.d-lede { font-size: 17px; color: var(--muted); margin-bottom: 22px; }
+        .checks { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+        .checks li { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; }
+        .checks .ck { flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: rgba(123,174,159,.2); display:flex; align-items:center; justify-content:center; margin-top: 1px; }
+        .checks .ck svg { width: 13px; height: 13px; stroke: var(--green); stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+        .checks b { font-weight: 600; }
+        .checks span.sub { color: var(--muted); font-weight: 400; }
+
+        /* media cards inside detail rows */
+        .media-card {
+            background: var(--white); border: 1px solid var(--line); border-radius: 26px;
+            padding: 24px; box-shadow: var(--shadow-sm);
         }
+        .media-card.tinted { background: linear-gradient(160deg, #EFF3EC 0%, #E7EFE9 100%); }
+        .ui-row { display:flex; align-items:center; gap: 12px; background: var(--white); border:1px solid var(--line); border-radius: 16px; padding: 14px; margin-bottom: 12px; }
+        .ui-row:last-child { margin-bottom: 0; }
+        .ui-ico { width: 40px; height: 40px; border-radius: 12px; background: var(--cream); display:flex; align-items:center; justify-content:center; flex:0 0 auto; }
+        .ui-ico svg { width: 22px; height: 22px; stroke: var(--green); fill:none; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
+        .ui-ico.coral { background: rgba(242,141,125,.18); } .ui-ico.coral svg { stroke: var(--coral); }
+        .ui-ico.lilac { background: rgba(167,139,250,.18); } .ui-ico.lilac svg { stroke: #7C5CD6; }
+        .ui-txt b { display:block; font-size: 15px; }
+        .ui-txt span { font-size: 13px; color: var(--muted); }
+        .ui-pill { margin-left:auto; font-size: 12px; font-weight:600; padding: 5px 12px; border-radius: 999px; background: rgba(123,174,159,.18); color: var(--green); white-space: nowrap; }
+        .ui-pill.warn { background: rgba(242,141,125,.16); color: #C9503C; }
+        .bar { height: 8px; border-radius: 999px; background: #EAEEE8; overflow: hidden; margin-top: 6px; }
+        .bar > i { display:block; height:100%; border-radius: 999px; background: var(--green); }
+
+        /* ---------- Privacy band ---------- */
+        .band { background: var(--ink); color: var(--paper); border-radius: 32px; padding: 56px; text-align: center; }
+        .band h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 500; letter-spacing: -0.01em; margin-bottom: 16px; color: #fff; }
+        .band p { font-size: 18px; color: rgba(246,247,242,.78); max-width: 640px; margin: 0 auto 28px; }
+        .band .pill-row { display:flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+        .band .p-pill { display:inline-flex; align-items:center; gap:8px; font-size: 14px; font-weight: 500; color: #DCE7E0; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); padding: 9px 16px; border-radius: 999px; }
+        .band .p-pill svg { width: 16px; height: 16px; stroke: var(--sage); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+        .band a.plink { color: var(--sage); font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(123,174,159,.4); }
+
+        /* ---------- Screenshot gallery ---------- */
+        .shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+        @media (max-width: 780px) { .shots { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; } }
+        .shot-frame {
+            aspect-ratio: 300 / 640; border-radius: 34px; overflow: hidden;
+            background: linear-gradient(160deg, #EFF3EC, #E4EDE6);
+            border: 10px solid #10231d; box-shadow: var(--shadow);
+            display:flex; align-items:center; justify-content:center; position: relative;
+        }
+        .shot-frame img { width: 100%; height: 100%; object-fit: cover; display:block; }
+        .shot-frame .placeholder { text-align:center; color: var(--sage); padding: 20px; }
+        .shot-frame .placeholder svg { width: 40px; height: 40px; stroke: var(--sage); fill:none; stroke-width:1.6; margin-bottom: 10px; }
+        .shot-frame .placeholder small { display:block; font-size: 12px; color: var(--muted); }
+        .shot-cap { text-align: center; font-size: 14px; font-weight: 600; color: var(--ink); margin-top: 16px; }
+
+        /* ---------- Final CTA ---------- */
+        .final { text-align:center; }
+        .final h2 { font-size: clamp(32px, 5vw, 54px); font-weight: 500; letter-spacing: -0.015em; line-height: 1.05; margin-bottom: 20px; }
+        .final p { font-size: 19px; color: var(--muted); max-width: 34em; margin: 0 auto 32px; }
+
+        /* ---------- Footer ---------- */
+        footer.site { border-top: 1px solid var(--line); padding: 52px 0 40px; margin-top: 24px; }
+        .foot { display:flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; }
+        .foot img { height: 30px; margin-bottom: 14px; }
+        .foot .tag { font-size: 14px; color: var(--muted); max-width: 22em; }
+        .foot-links { display:flex; gap: 40px; flex-wrap: wrap; }
+        .foot-col h4 { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--sage); margin-bottom: 14px; font-family: 'Inter', sans-serif; font-weight: 700; }
+        .foot-col a { display:block; text-decoration:none; color: var(--muted); font-size: 15px; margin-bottom: 10px; transition: color .15s; }
+        .foot-col a:hover { color: var(--ink); }
+        .foot-bottom { border-top: 1px solid var(--line); margin-top: 40px; padding-top: 24px; display:flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Chime</h1>
-            <p class="tagline">AI-Powered Task Reminders</p>
-        </header>
-        
-        <div class="hero">
-            <h2>Just talk. Tasks appear.</h2>
-            <p>Chime turns your voice into perfectly scheduled reminders using AI.<br>No typing. No complexity. Just speak naturally.</p>
-            <a href="https://apps.apple.com/app/chime" class="cta">Download on the App Store</a>
+
+    <!-- =================== HEADER =================== -->
+    <header class="site">
+        <div class="wrap nav">
+            <a class="brand" href="index.html" aria-label="Clann home">
+                <img src="assets/logo-lockup.png" alt="Clann">
+            </a>
+            <nav class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#privacy">Privacy</a>
+                <a href="support.html">Support</a>
+                <!-- TODO: replace with the real App Store listing URL once live -->
+                <a class="nav-cta" href="https://apps.apple.com/us/app/chime-by-prvail/id6755217813">Get the app</a>
+            </nav>
         </div>
-        
-        <div class="features">
-            <div class="feature">
-                <h3>🗣️ Voice to Task</h3>
-                <p>Speak naturally and AI creates your tasks instantly</p>
+    </header>
+
+    <!-- =================== HERO =================== -->
+    <section class="hero">
+        <div class="hero-illu" aria-hidden="true"></div>
+        <div class="wrap hero-inner">
+            <div class="hero-copy">
+                <span class="eyebrow">Family safety · reimagined</span>
+                <h1>Your family,<br><span class="em">connected.</span></h1>
+                <p class="lede">Clann brings everyone you love into one calm, private place — see where they are, know they got there safely, and keep screen time healthy without the nagging.</p>
+                <div class="hero-actions">
+                    <!-- TODO: replace href with the real App Store listing URL -->
+                    <a class="btn btn-primary" href="https://apps.apple.com/us/app/chime-by-prvail/id6755217813">
+                        <svg class="apple" viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+                        <span>
+                            <small>Download on the</small>
+                            <span class="store-txt">App Store</span>
+                        </span>
+                    </a>
+                    <a class="btn btn-ghost" href="#features">See how it works</a>
+                </div>
+                <p class="hero-note">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1L3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4z"/></svg>
+                    Built for iPhone · Private by design · No ads, ever
+                </p>
             </div>
-            
-            <div class="feature">
-                <h3>🧠 Smart Scheduling</h3>
-                <p>Understands "tomorrow at 3pm" or "every Monday"</p>
-            </div>
-            
-            <div class="feature">
-                <h3>🔐 Privacy First</h3>
-                <p>Your data stays on your device. No tracking. Period.</p>
-            </div>
-            
-            <div class="feature">
-                <h3>🎨 Beautiful Design</h3>
-                <p>Elegant dark interface with smooth animations</p>
+
+            <!-- Hero device mock (stylized — swap for a real screenshot when ready) -->
+            <div class="device-col">
+                <div class="device" role="img" aria-label="Clann app showing a family map with member locations">
+                    <div class="notch"></div>
+                    <div class="screen">
+                        <div class="statusbar"><span>9:41</span><span>&#9679;&#9679;&#9679; &#9678;</span></div>
+                        <div class="map-area">
+                            <div class="mini-logo"><img src="assets/mark.png" alt=""></div>
+                            <svg viewBox="0 0 300 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                                <rect width="300" height="380" fill="#E9F0EA"/>
+                                <path d="M-20 120 C 60 90, 120 170, 200 140 S 340 120, 340 120" stroke="#CFE0D3" stroke-width="26" fill="none" opacity=".7"/>
+                                <path d="M-20 250 C 80 230, 140 300, 240 270 S 340 250, 340 250" stroke="#CFE0D3" stroke-width="20" fill="none" opacity=".6"/>
+                                <path d="M40 -20 C 60 120, 20 240, 90 400" stroke="#BFD6E0" stroke-width="16" fill="none" opacity=".8"/>
+                                <path d="M-20 320 C 90 300, 160 360, 320 330 L 320 400 L -20 400 Z" fill="#DCE9DE" opacity=".7"/>
+                                <circle cx="70" cy="70" r="2.5" fill="#B7Cabe"/><circle cx="250" cy="90" r="2.5" fill="#B7Cabe"/>
+                                <circle cx="210" cy="330" r="2.5" fill="#B7Cabe"/><circle cx="120" cy="200" r="2.5" fill="#B7Cabe"/>
+                            </svg>
+                            <div class="pin" style="left:36%; top:44%;"><div class="dot" style="background:#3A6B57;">GR</div><div class="stem"></div></div>
+                            <div class="pin" style="left:62%; top:36%;"><div class="dot" style="background:#F28D7D;">BR</div><div class="stem"></div></div>
+                            <div class="pin" style="left:50%; top:62%;"><div class="dot" style="background:#A78BFA;">CA</div><div class="stem"></div></div>
+                        </div>
+                        <div class="sheet">
+                            <div class="grabber"></div>
+                            <div class="sheet-head"><b>Family</b><span class="chip">All located</span></div>
+                            <div class="m-row">
+                                <div class="m-av" style="background:#F28D7D;">BR</div>
+                                <div><div class="m-name">Brady</div><div class="m-sub">Near Rivers Edge · 13m ago</div></div>
+                                <div class="m-bat low">10%</div>
+                            </div>
+                            <div class="m-row">
+                                <div class="m-av" style="background:#A78BFA;">CA</div>
+                                <div><div class="m-name">Carson</div><div class="m-sub">The Brooks · 13m ago</div></div>
+                                <div class="m-bat">25%</div>
+                            </div>
+                            <div class="m-row">
+                                <div class="m-av" style="background:#3A6B57;">GR</div>
+                                <div><div class="m-name">Graeme</div><div class="m-sub">Home · just now</div></div>
+                                <div class="m-bat">75%</div>
+                            </div>
+                            <div class="tabbar">
+                                <div class="tab active"><svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 10-8 0 4 4 0 008 0zM4 20a8 8 0 0116 0z"/></svg>People</div>
+                                <div class="tab"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 017 7c0 5-7 13-7 13S5 14 5 9a7 7 0 017-7zm0 4a3 3 0 100 6 3 3 0 000-6z"/></svg>Places</div>
+                                <div class="tab center"><svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9.4-8 11-4.5-1.6-8-6-8-11V5l8-3z"/></svg></div>
+                                <div class="tab"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H7l-3 3V4z"/></svg>Messages</div>
+                                <div class="tab"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>More</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <footer>
-            <p>
-                <a href="/privacy">Privacy Policy</a> · 
-                <a href="/support">Support</a> · 
-                <a href="mailto:support@prvail.ai">Contact</a>
-            </p>
-            <p style="margin-top: 20px;">© 2024 Chime. All rights reserved.</p>
-        </footer>
-    </div>
+    </section>
+
+    <!-- =================== FEATURES GRID =================== -->
+    <section id="features">
+        <div class="wrap">
+            <div class="sec-head">
+                <div class="kicker">One app, whole family</div>
+                <h2>Everything that keeps them close</h2>
+                <p>Location, screen time, and safety in a single warm, uncomplicated app — no separate logins, no clutter.</p>
+            </div>
+            <div class="features">
+                <div class="fcard">
+                    <div class="tile"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11a7 7 0 1114 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+                    <h3>Live location</h3>
+                    <p>See where everyone is on one shared map, updated in real time — so you never have to send "where are you?" again.</p>
+                </div>
+                <div class="fcard">
+                    <div class="tile"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
+                    <h3>Arrival alerts</h3>
+                    <p>Get a gentle heads-up when someone reaches home, school, or work. Peace of mind, without hovering.</p>
+                </div>
+                <div class="fcard">
+                    <div class="tile"><svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9.4-8 11-4.5-1.6-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+                    <h3>Healthy screen time</h3>
+                    <p>Set app limits, bedtimes, and category rules that actually stick — and approve "just five more minutes" from your phone.</p>
+                </div>
+                <div class="fcard">
+                    <div class="tile"><svg viewBox="0 0 24 24"><path d="M5 16l1.5-5A3 3 0 019.4 9h5.2a3 3 0 012.9 2L19 16"/><path d="M3 16h18v3H3z"/><circle cx="7.5" cy="19.5" r="1.5"/><circle cx="16.5" cy="19.5" r="1.5"/></svg></div>
+                    <h3>Safe driving</h3>
+                    <p>Know your new driver made the trip safely, with drive summaries that help — not shame — the whole family.</p>
+                </div>
+                <div class="fcard">
+                    <div class="tile"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11a7 7 0 1114 0c0 4.7-7 11-7 11z"/><path d="M9 9.5h6M9 12h4"/></svg></div>
+                    <h3>Places that matter</h3>
+                    <p>Save the spots your family lives around — home, grandma's, practice — and let Clann do the noticing for you.</p>
+                </div>
+                <div class="fcard">
+                    <div class="tile"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4V5z"/><path d="M8 9h8M8 12h5"/></svg></div>
+                    <h3>Family messages</h3>
+                    <p>Quick check-ins and requests in one thread — including a kid's "can I have more time?" and your one-tap reply.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================== DETAIL: LOCATION =================== -->
+    <section style="padding-top: 24px;">
+        <div class="wrap detail">
+            <div class="detail-copy">
+                <div class="kicker">See everyone at a glance</div>
+                <h2>One map for the people you love</h2>
+                <p class="d-lede">Clann puts your whole family on a single, always-current map. Glance once and you'll know who's home, who's on the move, and who might need a charger soon.</p>
+                <ul class="checks">
+                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Real-time positions</b> — everyone's latest location, right where you'd expect it.</span></li>
+                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Battery at a glance</b> <span class="sub">— spot a low phone before it goes dark.</span></span></li>
+                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Sharing on your terms</b> <span class="sub">— every member controls their own visibility.</span></span></li>
+                </ul>
+            </div>
+            <div class="detail-media">
+                <div class="media-card tinted">
+                    <div class="ui-row">
+                        <div class="m-av" style="background:#3A6B57; width:40px; height:40px; font-size:13px;">GR</div>
+                        <div class="ui-txt"><b>Graeme</b><span>Home · just now</span></div>
+                        <span class="ui-pill">75%</span>
+                    </div>
+                    <div class="ui-row">
+                        <div class="m-av" style="background:#F28D7D; width:40px; height:40px; font-size:13px;">BR</div>
+                        <div class="ui-txt"><b>Brady</b><span>Near Rivers Edge · 13m ago</span></div>
+                        <span class="ui-pill warn">10%</span>
+                    </div>
+                    <div class="ui-row">
+                        <div class="m-av" style="background:#A78BFA; width:40px; height:40px; font-size:13px;">CA</div>
+                        <div class="ui-txt"><b>Carson</b><span>Arrived at School · 8:42 AM</span></div>
+                        <span class="ui-pill">25%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================== DETAIL: SCREEN TIME =================== -->
+    <section>
+        <div class="wrap detail rev">
+            <div class="detail-copy">
+                <div class="kicker">Healthy screen time, together</div>
+                <h2>Balance without the battles</h2>
+                <p class="d-lede">Set the rules once and Clann helps them hold — app and category limits, bedtime wind-downs, and a calm block screen that explains why. When they ask for more time, you decide with a single tap.</p>
+                <ul class="checks">
+                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>App &amp; category limits</b> <span class="sub">— daily budgets that reset on schedule.</span></span></li>
+                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Bedtime &amp; downtime</b> <span class="sub">— quiet hours that wind the phone down automatically.</span></span></li>
+                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Approve from your phone</b> <span class="sub">— grant "more time" from the notification, no unlock required.</span></span></li>
+                </ul>
+            </div>
+            <div class="detail-media">
+                <div class="media-card">
+                    <div class="ui-row">
+                        <div class="ui-ico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M9 7h6"/></svg></div>
+                        <div class="ui-txt"><b>Social apps</b><span>42 min of 1 hr used</span>
+                            <div class="bar" style="width:150px;"><i style="width:70%;"></i></div>
+                        </div>
+                    </div>
+                    <div class="ui-row">
+                        <div class="ui-ico lilac"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 109 9"/><path d="M12 7v5l3 2"/></svg></div>
+                        <div class="ui-txt"><b>Bedtime</b><span>Winds down at 9:30 PM</span></div>
+                        <span class="ui-pill">On</span>
+                    </div>
+                    <div class="ui-row">
+                        <div class="ui-ico coral"><svg viewBox="0 0 24 24"><path d="M12 8v5M12 16h.01"/><circle cx="12" cy="12" r="9"/></svg></div>
+                        <div class="ui-txt"><b>Carson asked for 15 more min</b><span>YouTube · just now</span></div>
+                        <span class="ui-pill">Approve</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================== DETAIL: SAFETY / DRIVING =================== -->
+    <section>
+        <div class="wrap detail">
+            <div class="detail-copy">
+                <div class="kicker">Peace of mind on the road</div>
+                <h2>Know they made it there</h2>
+                <p class="d-lede">For the newest drivers and the farthest trips, Clann quietly keeps watch — an arrival note when they're safe, and a simple drive summary you can talk through together.</p>
+                <ul class="checks">
+                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Arrival &amp; departure alerts</b> <span class="sub">— for every place that matters.</span></span></li>
+                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Trip summaries</b> <span class="sub">— a gentle recap, built for coaching, not scolding.</span></span></li>
+                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Family-wide safety</b> <span class="sub">— the same reassurance for kids, teens, and grandparents.</span></span></li>
+                </ul>
+            </div>
+            <div class="detail-media">
+                <div class="media-card tinted">
+                    <div class="ui-row">
+                        <div class="ui-ico"><svg viewBox="0 0 24 24"><path d="M5 16l1.5-5A3 3 0 019.4 9h5.2a3 3 0 012.9 2L19 16"/><path d="M3 16h18v3H3z"/></svg></div>
+                        <div class="ui-txt"><b>Brady arrived home</b><span>4:32 PM · 12 min drive</span></div>
+                        <span class="ui-pill">Safe</span>
+                    </div>
+                    <div class="ui-row">
+                        <div class="ui-ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11a7 7 0 1114 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+                        <div class="ui-txt"><b>Left School</b><span>3:15 PM</span></div>
+                        <span class="ui-pill">On the way</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================== PRIVACY BAND =================== -->
+    <section id="privacy">
+        <div class="wrap">
+            <div class="band">
+                <h2>Private by design, always</h2>
+                <p>Clann exists to bring your family closer — not to sell what it learns. Your family's data stays within your family. No advertising, no data brokers, no third-party trackers.</p>
+                <div class="pill-row">
+                    <span class="p-pill"><svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9.4-8 11-4.5-1.6-8-6-8-11V5l8-3z"/></svg>Encrypted in transit</span>
+                    <span class="p-pill"><svg viewBox="0 0 24 24"><path d="M18 8V6a6 6 0 10-12 0v2"/><rect x="4" y="8" width="16" height="12" rx="2"/></svg>You control sharing</span>
+                    <span class="p-pill"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M4.5 4.5l15 15"/></svg>No ads, ever</span>
+                    <span class="p-pill"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>Delete your data anytime</span>
+                </div>
+                <p style="margin-top:26px; margin-bottom:0;">Read the full <a class="plink" href="privacy.html">Privacy Policy</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================== SCREENSHOTS =================== -->
+    <section>
+        <div class="wrap">
+            <div class="sec-head">
+                <div class="kicker">Take a closer look</div>
+                <h2>Calm, clear, and made for families</h2>
+                <p>A little bit of everything, none of the noise.</p>
+            </div>
+            <div class="shots">
+                <div>
+                    <div class="shot-frame">
+                        <img src="assets/screenshots/screentime.png" alt="Clann Screen Time usage report">
+                    </div>
+                    <div class="shot-cap">See their screen time</div>
+                </div>
+                <div>
+                    <div class="shot-frame">
+                        <img src="assets/screenshots/controls.png" alt="Clann parental controls and bonus time">
+                    </div>
+                    <div class="shot-cap">Controls in one tap</div>
+                </div>
+                <div>
+                    <div class="shot-frame">
+                        <img src="assets/screenshots/driving.png" alt="Clann driving safety settings">
+                    </div>
+                    <div class="shot-cap">Coach safer driving</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================== FINAL CTA =================== -->
+    <section class="final">
+        <div class="wrap">
+            <h2>Bring your family a little closer.</h2>
+            <p>Set it up in minutes. Feel the difference the first time someone gets home safe and you already knew.</p>
+            <!-- TODO: replace href with the real App Store listing URL -->
+            <a class="btn btn-primary" href="https://apps.apple.com/us/app/chime-by-prvail/id6755217813" style="font-size:17px; padding:16px 28px;">
+                <svg class="apple" viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+                <span><small>Download on the</small><span class="store-txt">App Store</span></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- =================== FOOTER =================== -->
+    <footer class="site">
+        <div class="wrap">
+            <div class="foot">
+                <div>
+                    <img src="assets/logo-lockup.png" alt="Clann">
+                    <p class="tag">Your family, connected. A calm, private home for location, screen time, and everyday peace of mind.</p>
+                </div>
+                <div class="foot-links">
+                    <div class="foot-col">
+                        <h4>Product</h4>
+                        <a href="#features">Features</a>
+                        <a href="#privacy">Privacy</a>
+                        <!-- TODO: real App Store URL -->
+                        <a href="https://apps.apple.com/us/app/chime-by-prvail/id6755217813">Download</a>
+                    </div>
+                    <div class="foot-col">
+                        <h4>Company</h4>
+                        <a href="support.html">Support</a>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="mailto:support@prvail.ai">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="foot-bottom">
+                <span>© 2026 Clann. All rights reserved.</span>
+                <span>Made for families · <a href="mailto:support@prvail.ai" style="color:var(--green); text-decoration:none;">support@prvail.ai</a></span>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
-
