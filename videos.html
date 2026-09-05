@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup videos — Clann</title>
+    <meta name="description" content="Short narrated videos that walk you through setting up Clann: inviting your child, location done right, and Screen Time that holds.">
+    <meta name="theme-color" content="#0F3D34">
+    <link rel="icon" type="image/png" href="assets/mark.png">
+    <link rel="apple-touch-icon" href="assets/favicon-180.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink:#0F3D34; --green:#3A6B57; --sage:#7BAE9F; --cream:#EADBC8;
+            --paper:#F6F7F2; --coral:#F28D7D; --white:#fff; --muted:#5C6E67; --line:#E2E6DF;
+            --shadow-sm: 0 8px 24px -12px rgba(15,61,52,.25);
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--paper); color:var(--ink); line-height:1.65; -webkit-font-smoothing:antialiased; }
+        h1,h2,h3 { font-family:'Fraunces',Georgia,serif; }
+        a { color:var(--green); }
+        .wrap { max-width: 920px; margin:0 auto; padding:0 24px; }
+
+        header.site { position:sticky; top:0; z-index:50; background:rgba(246,247,242,.85); backdrop-filter:saturate(140%) blur(12px); border-bottom:1px solid var(--line); }
+        .nav { display:flex; align-items:center; justify-content:space-between; height:70px; max-width:1120px; margin:0 auto; padding:0 24px; }
+        .nav .brand img { height:32px; display:block; }
+        .nav a.back { text-decoration:none; color:var(--muted); font-weight:500; font-size:15px; }
+        .nav a.back:hover { color:var(--ink); }
+
+        .hero { text-align:center; padding: 60px 0 28px; }
+        .hero h1 { font-size: clamp(36px, 6vw, 54px); font-weight:500; letter-spacing:-0.015em; }
+        .hero p { color:var(--muted); font-size:18px; margin-top:14px; max-width:640px; margin-left:auto; margin-right:auto; }
+
+        .videos { display:grid; gap:28px; margin: 24px 0 56px; }
+        article.video { background:var(--white); border:1px solid var(--line); border-radius:24px; overflow:hidden; box-shadow:var(--shadow-sm); scroll-margin-top:90px; }
+        article.video video { display:block; width:100%; aspect-ratio:16/9; background:var(--ink); }
+        article.video .body { padding:24px 28px 28px; }
+        article.video .eyebrow { display:flex; align-items:center; gap:10px; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--sage); font-weight:700; margin-bottom:8px; }
+        article.video .eyebrow .dot { width:5px; height:5px; border-radius:50%; background:var(--sage); opacity:.6; }
+        article.video h2 { font-size:26px; font-weight:500; letter-spacing:-0.01em; margin-bottom:8px; }
+        article.video p.lede { color:#3d4d47; font-size:16px; }
+        article.video details { margin-top:14px; }
+        article.video summary { cursor:pointer; list-style:none; font-weight:600; color:var(--green); font-size:15px; display:inline-flex; align-items:center; gap:8px; }
+        article.video summary::-webkit-details-marker { display:none; }
+        article.video summary::after { content:'+'; font-weight:700; color:var(--sage); }
+        article.video details[open] summary::after { content:'–'; }
+        article.video details p { color:#3d4d47; margin-top:12px; }
+        article.video details ol { margin:12px 0 0 4px; padding-left:22px; color:#3d4d47; }
+        article.video details li { margin-bottom:6px; }
+        article.video details li::marker { color:var(--sage); font-weight:700; }
+
+        .cta { background:var(--ink); color:var(--paper); border-radius:24px; padding:34px; text-align:center; margin:0 0 48px; box-shadow:var(--shadow-sm); }
+        .cta h2 { color:#fff; font-size:24px; font-weight:500; margin-bottom:8px; }
+        .cta p { color:rgba(246,247,242,.78); margin-bottom:20px; }
+        .cta a.btn { display:inline-flex; align-items:center; gap:8px; background:var(--paper); color:var(--ink); text-decoration:none; font-weight:600; padding:13px 24px; border-radius:13px; transition:transform .16s; margin:0 6px; }
+        .cta a.btn:hover { transform:translateY(-2px); }
+
+        footer.site { border-top:1px solid var(--line); padding:40px 0; margin-top:20px; text-align:center; color:var(--muted); font-size:14px; }
+        footer.site a { color:var(--green); text-decoration:none; }
+        footer.site .fl { margin-bottom:12px; }
+        footer.site .fl a { margin:0 10px; font-weight:500; }
+
+        @media (min-width: 720px) {
+            article.video .body { padding:28px 32px 32px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site">
+        <div class="nav">
+            <a class="brand" href="index.html" aria-label="Clann home"><img src="assets/logo-lockup.png" alt="Clann"></a>
+            <a class="back" href="index.html">← Back to home</a>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <div class="hero">
+            <h1>Setup videos</h1>
+            <p>Short, narrated walkthroughs of getting your family on Clann. Ten minutes of setup, once, and you're done.</p>
+        </div>
+
+        <div class="videos">
+            <article class="video" id="welcome">
+                <video controls playsinline preload="metadata" poster="videos/Video2-poster.jpg" aria-label="Welcome to Clann">
+                    <source src="videos/Video2.mp4" type="video/mp4">
+                    Your browser can't play this video. <a href="videos/Video2.mp4">Download it instead.</a>
+                </video>
+                <div class="body">
+                    <div class="eyebrow">Overview <span class="dot"></span> 1:03</div>
+                    <h2>Welcome to Clann</h2>
+                    <p class="lede">A one-minute tour: everyone on one map, safe arrivals, and screen time that holds.</p>
+                    <details>
+                        <summary>What's covered</summary>
+                        <p>Shannon walks through what Clann does for your family — the live map with battery levels, arrival alerts for school, home, and practice, driving trips door to door, and the gentle guardrail on the kids' phones: limits and bedtime that hold, a block screen that explains why, and one tap to ask for more time.</p>
+                        <ol>
+                            <li>Your clann, live on the map</li>
+                            <li>Arrival alerts, battery, driving trips</li>
+                            <li>A gentle guardrail for the kids</li>
+                        </ol>
+                    </details>
+                </div>
+            </article>
+
+            <article class="video" id="getting-your-child-on">
+                <video controls playsinline preload="metadata" poster="videos/Video1-poster.jpg" aria-label="Getting your child on Clann">
+                    <source src="videos/Video1.mp4" type="video/mp4">
+                    Your browser can't play this video. <a href="videos/Video1.mp4">Download it instead.</a>
+                </video>
+                <div class="body">
+                    <div class="eyebrow">Full setup <span class="dot"></span> 2:56</div>
+                    <h2>Getting your child on Clann</h2>
+                    <p class="lede">Ten minutes, once, and you're done — invite, join, permissions, Screen Time.</p>
+                    <details>
+                        <summary>What's covered</summary>
+                        <p>The full setup, start to finish. Invite your child from your phone (six-letter code, QR, or share link — the invite lives for fifteen minutes). Join from their phone — under 12 needs no sign-in, teens sign in with Apple first. Then permissions one screen at a time: Location set to Always, Background App Refresh, Cellular Data. Finally the important one: a child account in your Apple Family, Screen Time on, Clann allowed, and the optional locks — each one explained, each one your call.</p>
+                        <ol>
+                            <li>Invite from your phone</li>
+                            <li>Join from their phone</li>
+                            <li>Location: Always is the one that matters</li>
+                            <li>Screen Time, Apple Family, and the locks</li>
+                            <li>Notifications, and you're done</li>
+                        </ol>
+                    </details>
+                </div>
+            </article>
+
+            <article class="video" id="location">
+                <video controls playsinline preload="metadata" poster="videos/Video3-poster.jpg" aria-label="Location, done right">
+                    <source src="videos/Video3.mp4" type="video/mp4">
+                    Your browser can't play this video. <a href="videos/Video3.mp4">Download it instead.</a>
+                </video>
+                <div class="body">
+                    <div class="eyebrow">Location <span class="dot"></span> 1:13</div>
+                    <h2>Location, done right</h2>
+                    <p class="lede">iOS asks twice. Always is the one that matters — plus two switches that keep Clann awake.</p>
+                    <details>
+                        <summary>What's covered</summary>
+                        <p>When Clann asks for location, iOS offers While Using first — say yes. Then the second question: change to Always? That's what puts your child on the map when the phone is locked, in a pocket, in a backpack across town. If the second prompt never showed, open Settings → clann → Location, choose Always, and keep Precise Location on. Then Background App Refresh and Cellular Data, so iOS never quietly puts Clann to sleep.</p>
+                        <ol>
+                            <li>While Using first, then Always</li>
+                            <li>If the prompt never came: Settings → clann → Location</li>
+                            <li>Background App Refresh + Cellular Data</li>
+                        </ol>
+                    </details>
+                </div>
+            </article>
+
+            <article class="video" id="screen-time">
+                <video controls playsinline preload="metadata" poster="videos/Video4-poster.jpg" aria-label="Screen Time that holds">
+                    <source src="videos/Video4.mp4" type="video/mp4">
+                    Your browser can't play this video. <a href="videos/Video4.mp4">Download it instead.</a>
+                </video>
+                <div class="body">
+                    <div class="eyebrow">Screen Time <span class="dot"></span> 1:39</div>
+                    <h2>Screen Time that holds</h2>
+                    <p class="lede">Build on Apple's own Screen Time so limits can't just be switched off.</p>
+                    <details>
+                        <summary>What's covered</summary>
+                        <p>First, the foundation — and it happens on your phone: your child's Apple ID should be a child account in your Apple Family (Settings → your name → Family Sharing → Add Member). Then on their phone, turn on Screen Time and allow Clann's access when Apple asks for your approval. Skip the family step and Clann can only partly protect the phone. Then the locks — a Screen Time passcode, and locks on location, cellular, background activity, and account changes. When you're done, the protection summary tells you honestly what's locked and what's still open.</p>
+                        <ol>
+                            <li>The foundation: a child account in your Apple Family</li>
+                            <li>Turn on Screen Time, allow Clann (strong mode)</li>
+                            <li>The locks — optional, each one explained</li>
+                            <li>The protection summary + the block screen</li>
+                        </ol>
+                    </details>
+                </div>
+            </article>
+        </div>
+
+        <div class="cta">
+            <h2>Still stuck?</h2>
+            <p>The Support page has the written version of every step, and a human on the other end of the email.</p>
+            <a class="btn" href="support.html">Read the FAQ</a>
+            <a class="btn" href="mailto:support@prvail.ai?subject=Clann%20Setup">✉️ support@prvail.ai</a>
+        </div>
+    </main>
+
+    <footer class="site">
+        <div class="wrap">
+            <div class="fl"><a href="index.html">Home</a> · <a href="support.html">Support</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="mailto:support@prvail.ai">Contact</a></div>
+            <div>© 2026 Clann. All rights reserved.</div>
+        </div>
+    </footer>
+</body>
+</html>
