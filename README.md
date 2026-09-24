@@ -8,6 +8,10 @@ Hosted on **GitHub Pages** at **https://prvail.ai**.
 - **index.html** — Landing page (Clann brand: sage/green, warm cream, Fraunces + Inter)
 - **privacy.html** — Privacy Policy (location + parental-controls + backend; required for App Store)
 - **support.html** — Support / FAQ
+- **terms.html** — Terms of Service
+- **videos.html** — Setup videos page (the four narrated walkthroughs from `marketing/videos`)
+- **videos/** — the rendered MP4s + poster JPEGs the page and the iOS inbox play
+  (`Video1.mp4` … `Video4.mp4`; the app resolves `https://prvail.ai/videos/<Comp>.mp4`)
 - **CNAME** — custom domain (`prvail.ai`)
 - **assets/** — brand images used by the pages:
   - `logo-lockup.png` — "clann" wordmark + mark (header/footer)
@@ -24,6 +28,12 @@ Hosted on **GitHub Pages** at **https://prvail.ai**.
 - **Repo:** `github.com/bvwolfden/chime-website`
 - **Source:** branch `main`, path `/` (root)
 - **Domain:** `prvail.ai` (CNAME already configured + HTTPS enforced)
+
+> **Drift warning (2026-09-05):** the live repo had edits that never came back
+> here (privacy policy date bump, `terms.html`, copy tweaks). They were synced
+> into this folder on 2026-09-05. Before an `rsync --delete`, diff this folder
+> against a fresh clone of `chime-website` so a stale copy never overwrites a
+> newer live page.
 
 This `docs/website/` folder is the **source of truth**. To publish, copy its
 contents to the **root** of `chime-website` and push `main`:
@@ -49,36 +59,30 @@ Pages rebuilds automatically; live within ~1 minute.
 > old Chime PNGs — the `rsync --delete` above removes them. Drop the `--delete`
 > flag if you want to keep any of those.
 
-## Screenshots (swap-in)
+## Screenshots (real app captures — refreshed 2026-09-24 for Clann 2.0.3)
 
-The landing page's "Take a closer look" section uses styled placeholder phone
-frames. To use real screenshots:
+Everything under `assets/screenshots/` is a real capture from the app, not a mock:
 
-1. Save portrait iPhone screenshots (~1170×2532) as
-   `assets/screenshots/1.png`, `2.png`, `3.png`.
-2. In `index.html`, find the `<div class="shots">` block, **uncomment** the
-   `<img …>` line in each frame, and delete the `.placeholder` block.
+- `panels/01-…10-*.jpg` — the **same ten App Store panels** attached to version 2.0.3
+  (family map, Usage today / detail / apps + bonus / week, live telemetry, trip replay,
+  flight tracking, Precision Find, navigate), downscaled to 645×1398 JPEG. Source of
+  truth is `marketing/appstore-previews/` — regenerate a panel there (`gen-panels.mjs`,
+  or headless Chrome over `render/<Name>.html` for the older ones), then
+  `sips -s format jpeg -s formatOptions 80 -z 1398 645 <panel>-1290x2796.png --out panels/<nn>-<name>.jpg`.
+- `hero-usage.jpg` / `detail-usage.jpg` — the Usage tab and a kid's full-day page, status bar
+  cropped off (`marketing/appstore/crop.swift <src> <dst> 0 100 764 1590`), shown inside the
+  page's CSS phone frames.
+- `card-*.jpg` — tight crops of real UI (family roster, bonus-time card, week heatmap, live
+  telemetry, trip replay stats) used as the media cards beside each feature section.
 
-The hero device is a stylized (CSS/SVG) mock — you can also swap that for a real
-screenshot later.
+When the App Store screenshot set changes, refresh `panels/` first — the gallery caption text
+in `index.html` mirrors each panel's headline, and the "What's new · Clann x.y.z" card near the
+top of the page should be bumped with the release.
 
-## Before going live — TODO
+## Before going live — checklist
 
-- **App Store URL:** every download button links to a placeholder
-  `https://apps.apple.com/us/app/clann`. Search `TODO` in `index.html` and
-  replace with the real listing URL once the app is published.
-- **Privacy Policy review:** `privacy.html` is written to accurately reflect what
-  Clann collects (location, screen-time, device, diagnostics) and is issued under
-  Brian Vukmir (sole proprietor, US). Have it reviewed before relying on it
-  legally; update the entity/jurisdiction if that changes.
-
-## URLs
-
-- Homepage: https://prvail.ai
-- Privacy: https://prvail.ai/privacy.html
-- Support: https://prvail.ai/support.html
-
-## Notes
-
-- Pure static HTML/CSS, no build step. Fonts load from Google Fonts.
-- Contact email: **support@prvail.ai** (ensure forwarding is set up).
+- The App Store URL is the live listing: `https://apps.apple.com/us/app/clann-by-prvail/id6755217813`
+  (Apple resolves by id; the slug is cosmetic).
+- Render a quick check before publishing: headless Chrome at 1280 wide, and a 390px-wide
+  `<iframe>` wrapper for mobile (Chrome enforces a ~500px minimum window, so a bare
+  `--window-size=390` screenshot is NOT a phone-width render).

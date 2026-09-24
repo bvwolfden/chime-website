@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clann — Your family, connected.</title>
-    <meta name="description" content="Clann keeps your family close — live location, arrival alerts, healthy screen time, and safe-driving peace of mind, all in one calm, private app.">
+    <meta name="description" content="Clann keeps your family close — a live family map, arrival alerts, screen time you can actually see, calm limits and bonus time, and safe-driving peace of mind. One private app, no ads.">
     <meta name="theme-color" content="#0F3D34">
 
     <!-- Open Graph / social -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Clann — Your family, connected.">
-    <meta property="og:description" content="Live location, arrival alerts, healthy screen time, and safe-driving peace of mind — one calm, private app for your whole family.">
+    <meta property="og:description" content="Live family map, arrival alerts, screen time you can actually see, and safe-driving peace of mind — one calm, private app for your whole family.">
     <meta property="og:url" content="https://prvail.ai">
     <meta property="og:image" content="https://prvail.ai/assets/hero-illustration.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -273,10 +273,38 @@
         .foot-col a { display:block; text-decoration:none; color: var(--muted); font-size: 15px; margin-bottom: 10px; transition: color .15s; }
         .foot-col a:hover { color: var(--ink); }
         .foot-bottom { border-top: 1px solid var(--line); margin-top: 40px; padding-top: 24px; display:flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+        /* ---------- 2026-09 refresh: real screenshots, Usage, gallery ---------- */
+        .device .screen img.shot { width: 100%; flex: 1 1 auto; min-height: 0; object-fit: cover; object-position: top center; display: block; }
+        .features.four { grid-template-columns: repeat(4, 1fr); }
+        @media (max-width: 1000px) { .features.four { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 860px) { .features.four { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 540px) { .features.four { grid-template-columns: 1fr; } }
+        .media-card.photo { padding: 0; overflow: hidden; background: #10231d; border-color: #10231d; }
+        .media-card.photo img { width: 100%; display: block; }
+        .media-card.photo.light { background: var(--white); border-color: var(--line); }
+        .media-card.photo + .media-card.photo { margin-top: 16px; }
+        .media-card.mini { margin-top: 26px; }
+        .media-card .inner-img { border-radius: 16px; overflow: hidden; border: 1px solid var(--line); margin-bottom: 12px; }
+        .media-card .inner-img img { width: 100%; display: block; }
+        .new-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #fff; background: var(--green); padding: 5px 11px; border-radius: 999px; margin-left: 10px; vertical-align: middle; }
+        .release { display: grid; grid-template-columns: 1.1fr 1.6fr; gap: 40px; align-items: center; background: linear-gradient(160deg, #EFF3EC 0%, #E7EFE9 100%); border: 1px solid var(--line); border-radius: 32px; padding: 44px 48px; margin-top: 56px; }
+        .release h3 { font-size: clamp(24px, 3vw, 32px); font-weight: 500; letter-spacing: -0.01em; line-height: 1.12; margin-bottom: 10px; }
+        .release .ver { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--sage); margin-bottom: 12px; }
+        .release p { color: var(--muted); font-size: 16px; }
+        .release ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 22px; }
+        .release li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; }
+        .release li b { display: block; font-weight: 600; margin-bottom: 2px; }
+        .release li span { color: var(--muted); font-size: 14px; }
+        @media (max-width: 880px) { .release { grid-template-columns: 1fr; padding: 32px 26px; } .release ul { grid-template-columns: 1fr; } }
+        .gallery-wrap { position: relative; }
+        .gallery { display: flex; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 6px max(24px, calc((100vw - 1120px) / 2)) 28px; scroll-padding-left: max(24px, calc((100vw - 1120px) / 2)); -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: var(--sage) transparent; }
+        .gallery > figure { flex: 0 0 272px; scroll-snap-align: start; margin: 0; }
+        .gallery img { width: 100%; display: block; border-radius: 26px; box-shadow: var(--shadow); background: #0F3D34; }
+        .gallery figcaption { text-align: center; font-size: 14px; font-weight: 600; margin-top: 14px; }
+        .gallery-hint { text-align: center; font-size: 13px; color: var(--muted); margin-top: 4px; }
     </style>
 </head>
 <body>
-
     <!-- =================== HEADER =================== -->
     <header class="site">
         <div class="wrap nav">
@@ -285,11 +313,11 @@
             </a>
             <nav class="nav-links">
                 <a href="#features">Features</a>
+                <a href="#usage">Usage</a>
                 <a href="#privacy">Privacy</a>
                 <a href="videos.html">Videos</a>
                 <a href="support.html">Support</a>
-                <!-- TODO: replace with the real App Store listing URL once live -->
-                <a class="nav-cta" href="https://apps.apple.com/us/app/chime-by-prvail/id6755217813">Get the app</a>
+                <a class="nav-cta" href="https://apps.apple.com/us/app/clann-by-prvail/id6755217813">Get the app</a>
             </nav>
         </div>
     </header>
@@ -299,12 +327,11 @@
         <div class="hero-illu" aria-hidden="true"></div>
         <div class="wrap hero-inner">
             <div class="hero-copy">
-                <span class="eyebrow">Family safety · reimagined</span>
+                <span class="eyebrow">Location · Screen time · Safe driving</span>
                 <h1>Your family,<br><span class="em">connected.</span></h1>
-                <p class="lede">Clann brings everyone you love into one calm, private place — see where they are, know they got there safely, and keep screen time healthy without the nagging.</p>
+                <p class="lede">Clann brings everyone you love into one calm, private place — see where they are, know they got there safely, and finally see screen time clearly enough to fix it without a fight.</p>
                 <div class="hero-actions">
-                    <!-- TODO: replace href with the real App Store listing URL -->
-                    <a class="btn btn-primary" href="https://apps.apple.com/us/app/chime-by-prvail/id6755217813">
+                    <a class="btn btn-primary" href="https://apps.apple.com/us/app/clann-by-prvail/id6755217813">
                         <svg class="apple" viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
                         <span>
                             <small>Download on the</small>
@@ -318,54 +345,12 @@
                     Built for iPhone · Private by design · No ads, ever
                 </p>
             </div>
-
-            <!-- Hero device mock (stylized — swap for a real screenshot when ready) -->
             <div class="device-col">
-                <div class="device" role="img" aria-label="Clann app showing a family map with member locations">
+                <div class="device">
                     <div class="notch"></div>
                     <div class="screen">
                         <div class="statusbar"><span>9:41</span><span>&#9679;&#9679;&#9679; &#9678;</span></div>
-                        <div class="map-area">
-                            <div class="mini-logo"><img src="assets/mark.png" alt=""></div>
-                            <svg viewBox="0 0 300 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                                <rect width="300" height="380" fill="#E9F0EA"/>
-                                <path d="M-20 120 C 60 90, 120 170, 200 140 S 340 120, 340 120" stroke="#CFE0D3" stroke-width="26" fill="none" opacity=".7"/>
-                                <path d="M-20 250 C 80 230, 140 300, 240 270 S 340 250, 340 250" stroke="#CFE0D3" stroke-width="20" fill="none" opacity=".6"/>
-                                <path d="M40 -20 C 60 120, 20 240, 90 400" stroke="#BFD6E0" stroke-width="16" fill="none" opacity=".8"/>
-                                <path d="M-20 320 C 90 300, 160 360, 320 330 L 320 400 L -20 400 Z" fill="#DCE9DE" opacity=".7"/>
-                                <circle cx="70" cy="70" r="2.5" fill="#B7Cabe"/><circle cx="250" cy="90" r="2.5" fill="#B7Cabe"/>
-                                <circle cx="210" cy="330" r="2.5" fill="#B7Cabe"/><circle cx="120" cy="200" r="2.5" fill="#B7Cabe"/>
-                            </svg>
-                            <div class="pin" style="left:36%; top:44%;"><div class="dot" style="background:#3A6B57;">GR</div><div class="stem"></div></div>
-                            <div class="pin" style="left:62%; top:36%;"><div class="dot" style="background:#F28D7D;">BR</div><div class="stem"></div></div>
-                            <div class="pin" style="left:50%; top:62%;"><div class="dot" style="background:#A78BFA;">CA</div><div class="stem"></div></div>
-                        </div>
-                        <div class="sheet">
-                            <div class="grabber"></div>
-                            <div class="sheet-head"><b>Family</b><span class="chip">All located</span></div>
-                            <div class="m-row">
-                                <div class="m-av" style="background:#F28D7D;">BR</div>
-                                <div><div class="m-name">Brady</div><div class="m-sub">Near Rivers Edge · 13m ago</div></div>
-                                <div class="m-bat low">10%</div>
-                            </div>
-                            <div class="m-row">
-                                <div class="m-av" style="background:#A78BFA;">CA</div>
-                                <div><div class="m-name">Carson</div><div class="m-sub">The Brooks · 13m ago</div></div>
-                                <div class="m-bat">25%</div>
-                            </div>
-                            <div class="m-row">
-                                <div class="m-av" style="background:#3A6B57;">GR</div>
-                                <div><div class="m-name">Graeme</div><div class="m-sub">Home · just now</div></div>
-                                <div class="m-bat">75%</div>
-                            </div>
-                            <div class="tabbar">
-                                <div class="tab active"><svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 10-8 0 4 4 0 008 0zM4 20a8 8 0 0116 0z"/></svg>People</div>
-                                <div class="tab"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 017 7c0 5-7 13-7 13S5 14 5 9a7 7 0 017-7zm0 4a3 3 0 100 6 3 3 0 000-6z"/></svg>Places</div>
-                                <div class="tab center"><svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9.4-8 11-4.5-1.6-8-6-8-11V5l8-3z"/></svg></div>
-                                <div class="tab"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H7l-3 3V4z"/></svg>Messages</div>
-                                <div class="tab"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>More</div>
-                            </div>
-                        </div>
+                        <img class="shot" src="assets/screenshots/hero-usage.jpg" alt="Clann's Usage tab: Brady's screen time today — 2 hours, 30 pickups, Social limit reached, top apps, and a See full day button" width="764" height="1590">
                     </div>
                 </div>
             </div>
@@ -380,37 +365,61 @@
                 <h2>Everything that keeps them close</h2>
                 <p>Location, screen time, and safety in a single warm, uncomplicated app — no separate logins, no clutter.</p>
             </div>
-            <div class="features">
+            <div class="features four">
                 <div class="fcard">
                     <div class="tile"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11a7 7 0 1114 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
-                    <h3>Live location</h3>
-                    <p>See where everyone is on one shared map, updated in real time — so you never have to send "where are you?" again.</p>
+                    <h3>Live family map</h3>
+                    <p>Everyone on one live map — where they are, how much battery they have left, and whether their phone is locked or limited.</p>
                 </div>
                 <div class="fcard">
                     <div class="tile"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
-                    <h3>Arrival alerts</h3>
-                    <p>Get a gentle heads-up when someone reaches home, school, or work. Peace of mind, without hovering.</p>
+                    <h3>Places &amp; arrival alerts</h3>
+                    <p>Save home, school, practice, grandma's. Get a gentle heads-up the moment someone arrives or leaves.</p>
                 </div>
                 <div class="fcard">
-                    <div class="tile"><svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9.4-8 11-4.5-1.6-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
-                    <h3>Healthy screen time</h3>
-                    <p>Set app limits, bedtimes, and category rules that actually stick — and approve "just five more minutes" from your phone.</p>
+                    <div class="tile"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M6 17V11"/><path d="M11 17V6"/><path d="M16 17v-4"/></svg></div>
+                    <h3>Screen time you can see</h3>
+                    <p>Today and this week, for every kid — time on screen, the apps behind it, and how it stacks up against their limits.</p>
+                </div>
+                <div class="fcard">
+                    <div class="tile"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 109 9"/><path d="M12 7v5l3 2"/></svg></div>
+                    <h3>Limits, bedtime &amp; school hours</h3>
+                    <p>App and category budgets, a sleep block, and school hours that quiet the phone where and when they should.</p>
+                </div>
+                <div class="fcard">
+                    <div class="tile"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg></div>
+                    <h3>Bonus time &amp; lock, in a tap</h3>
+                    <p>Add 15, 30, or 60 minutes to one app or category, approve a request from the notification, or lock every phone at once.</p>
+                </div>
+                <div class="fcard">
+                    <div class="tile"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M12 8v4M12 15h.01"/></svg></div>
+                    <h3>A block screen that explains itself</h3>
+                    <p>Kids see why an app is paused and when it comes back — and can ask for more time right from the block screen.</p>
                 </div>
                 <div class="fcard">
                     <div class="tile"><svg viewBox="0 0 24 24"><path d="M5 16l1.5-5A3 3 0 019.4 9h5.2a3 3 0 012.9 2L19 16"/><path d="M3 16h18v3H3z"/><circle cx="7.5" cy="19.5" r="1.5"/><circle cx="16.5" cy="19.5" r="1.5"/></svg></div>
-                    <h3>Safe driving</h3>
-                    <p>Know your new driver made the trip safely, with drive summaries that help — not shame — the whole family.</p>
+                    <h3>Trips, live and replayed</h3>
+                    <p>Live speed and altitude while they're moving, then a replay of any trip — route, speed, and every stop, exactly as it happened.</p>
                 </div>
                 <div class="fcard">
-                    <div class="tile"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11a7 7 0 1114 0c0 4.7-7 11-7 11z"/><path d="M9 9.5h6M9 12h4"/></svg></div>
-                    <h3>Places that matter</h3>
-                    <p>Save the spots your family lives around — home, grandma's, practice — and let Clann do the noticing for you.</p>
+                    <div class="tile"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div>
+                    <h3>Find &amp; navigate to them</h3>
+                    <p>Precision Find walks you the last few feet to their phone. Turn-by-turn directions follow a family member as they move.</p>
                 </div>
-                <div class="fcard">
-                    <div class="tile"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4V5z"/><path d="M8 9h8M8 12h5"/></svg></div>
-                    <h3>Family messages</h3>
-                    <p>Quick check-ins and requests in one thread — including a kid's "can I have more time?" and your one-tap reply.</p>
+            </div>
+
+            <div class="release" id="whats-new">
+                <div>
+                    <div class="ver">What's new · Clann 2.0.3</div>
+                    <h3>The Usage update</h3>
+                    <p>The biggest change since Clann launched: a Usage tab that shows the whole family's screen time clearly, plus calmer, clearer controls for kids and parents alike.</p>
                 </div>
+                <ul>
+                    <li><div><b>A Usage tab for the whole family</b><span>Today and this week for every kid — time, top apps, pickups, and the nearest limit.</span></div></li>
+                    <li><div><b>Bonus time for one app or category</b><span>Give 15, 30, or 60 minutes to just the thing they asked for, right from Usage.</span></div></li>
+                    <li><div><b>Block screens that say why — and until when</b><span>Kids see which rule paused an app and when it comes back, so nobody has to guess.</span></div></li>
+                    <li><div><b>Lock and unlock you can see land</b><span>When you lock a phone, Clann confirms it took — on the map, on the roster, and in the Day card.</span></div></li>
+                </ul>
             </div>
         </div>
     </section>
@@ -421,96 +430,100 @@
             <div class="detail-copy">
                 <div class="kicker">See everyone at a glance</div>
                 <h2>One map for the people you love</h2>
-                <p class="d-lede">Clann puts your whole family on a single, always-current map. Glance once and you'll know who's home, who's on the move, and who might need a charger soon.</p>
+                <p class="d-lede">Clann puts your whole family on a single, always-current map. Glance once and you'll know who's home, who's on the move, who might need a charger soon — and whose phone is locked or limited right now.</p>
                 <ul class="checks">
-                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Real-time positions</b> — everyone's latest location, right where you'd expect it.</span></li>
+                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Real-time positions</b> <span class="sub">— everyone's latest location, right where you'd expect it.</span></span></li>
                     <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Battery at a glance</b> <span class="sub">— spot a low phone before it goes dark.</span></span></li>
+                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Screen-time status on the roster</b> <span class="sub">— locked, limited, or free, without opening anything.</span></span></li>
                     <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Sharing on your terms</b> <span class="sub">— every member controls their own visibility.</span></span></li>
                 </ul>
             </div>
             <div class="detail-media">
-                <div class="media-card tinted">
-                    <div class="ui-row">
-                        <div class="m-av" style="background:#3A6B57; width:40px; height:40px; font-size:13px;">GR</div>
-                        <div class="ui-txt"><b>Graeme</b><span>Home · just now</span></div>
-                        <span class="ui-pill">75%</span>
-                    </div>
-                    <div class="ui-row">
-                        <div class="m-av" style="background:#F28D7D; width:40px; height:40px; font-size:13px;">BR</div>
-                        <div class="ui-txt"><b>Brady</b><span>Near Rivers Edge · 13m ago</span></div>
-                        <span class="ui-pill warn">10%</span>
-                    </div>
-                    <div class="ui-row">
-                        <div class="m-av" style="background:#A78BFA; width:40px; height:40px; font-size:13px;">CA</div>
-                        <div class="ui-txt"><b>Carson</b><span>Arrived at School · 8:42 AM</span></div>
-                        <span class="ui-pill">25%</span>
-                    </div>
+                <div class="media-card photo">
+                    <img src="assets/screenshots/card-family.jpg" alt="The Family roster in Clann: Brady, Carson, and Graeme with their nearest place, last update, battery, and a Lock all button" width="900" height="614" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- =================== DETAIL: SCREEN TIME =================== -->
-    <section>
+    <!-- =================== DETAIL: USAGE =================== -->
+    <section id="usage">
         <div class="wrap detail rev">
+            <div class="detail-copy">
+                <div class="kicker">New · Usage</div>
+                <h2>Screen time you can actually see</h2>
+                <p class="d-lede">Every kid's day at a glance, and every week in perspective. Clann shows the time, the apps behind it, and whether it's rising or falling — so the conversation starts with facts instead of guesses.</p>
+                <ul class="checks">
+                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Today, per kid</b> <span class="sub">— total time, pickups, longest session, top apps, and the nearest limit.</span></span></li>
+                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Hour by hour</b> <span class="sub">— across school, free time, and sleep, with what stayed blocked.</span></span></li>
+                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>The whole week</b> <span class="sub">— when they're on the phone, compared to their usual, rising or falling.</span></span></li>
+                </ul>
+                <div class="media-card photo light mini">
+                    <img src="assets/screenshots/card-week.jpg" alt="Week heatmap of when Brady is on the phone, hour by hour, Tuesday through Monday" width="900" height="419" loading="lazy">
+                </div>
+            </div>
+            <div class="detail-media" style="display:flex; justify-content:center;">
+                <div class="shot-frame" style="width: 300px; max-width: 82vw;">
+                    <img src="assets/screenshots/detail-usage.jpg" alt="Brady's full day in Clann: 2 hours today, 1 hour 13 minutes more than usual, an hour-by-hour chart across school, free time, and sleep, and category limits" width="764" height="1590" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================== DETAIL: SCREEN TIME CONTROLS =================== -->
+    <section>
+        <div class="wrap detail">
             <div class="detail-copy">
                 <div class="kicker">Healthy screen time, together</div>
                 <h2>Balance without the battles</h2>
-                <p class="d-lede">Set the rules once and Clann helps them hold — app and category limits, bedtime wind-downs, and a calm block screen that explains why. When they ask for more time, you decide with a single tap.</p>
+                <p class="d-lede">Set the rules once and Clann helps them hold — app and category budgets, a sleep block, school hours, and a calm block screen that tells your kid why and for how long. When they ask for more, you decide with a single tap.</p>
                 <ul class="checks">
-                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>App &amp; category limits</b> <span class="sub">— daily budgets that reset on schedule.</span></span></li>
-                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Bedtime &amp; downtime</b> <span class="sub">— quiet hours that wind the phone down automatically.</span></span></li>
-                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Approve from your phone</b> <span class="sub">— grant "more time" from the notification, no unlock required.</span></span></li>
+                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>App &amp; category limits</b> <span class="sub">— daily budgets for Social, Games, Entertainment, or one specific app.</span></span></li>
+                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Bedtime &amp; school hours</b> <span class="sub">— quiet hours that wind the phone down automatically, at home or at school.</span></span></li>
+                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Bonus time, scoped</b> <span class="sub">— unlock just the app or category they asked for, not the whole phone.</span></span></li>
+                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Lock all, one tap</b> <span class="sub">— dinner, homework, or bedtime for every kid's phone at once, and you see it land.</span></span></li>
                 </ul>
             </div>
             <div class="detail-media">
                 <div class="media-card">
-                    <div class="ui-row">
-                        <div class="ui-ico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M9 7h6"/></svg></div>
-                        <div class="ui-txt"><b>Social apps</b><span>42 min of 1 hr used</span>
-                            <div class="bar" style="width:150px;"><i style="width:70%;"></i></div>
-                        </div>
-                    </div>
-                    <div class="ui-row">
-                        <div class="ui-ico lilac"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 109 9"/><path d="M12 7v5l3 2"/></svg></div>
-                        <div class="ui-txt"><b>Bedtime</b><span>Winds down at 9:30 PM</span></div>
-                        <span class="ui-pill">On</span>
+                    <div class="inner-img">
+                        <img src="assets/screenshots/card-bonus.jpg" alt="Give bonus time in Clann: pick +15m, +30m, or +60m, then the app or category it applies to, or Lock now" width="708" height="292" loading="lazy">
                     </div>
                     <div class="ui-row">
                         <div class="ui-ico coral"><svg viewBox="0 0 24 24"><path d="M12 8v5M12 16h.01"/><circle cx="12" cy="12" r="9"/></svg></div>
-                        <div class="ui-txt"><b>Carson asked for 15 more min</b><span>YouTube · just now</span></div>
+                        <div class="ui-txt"><b>Carson asked for 15 more min</b><span>Instagram · just now</span></div>
                         <span class="ui-pill">Approve</span>
+                    </div>
+                    <div class="ui-row">
+                        <div class="ui-ico lilac"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 109 9"/><path d="M12 7v5l3 2"/></svg></div>
+                        <div class="ui-txt"><b>Sleep block</b><span>Winds down at 10:30 PM · back at 6:00 AM</span></div>
+                        <span class="ui-pill">On</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- =================== DETAIL: SAFETY / DRIVING =================== -->
+    <!-- =================== DETAIL: ON THE ROAD =================== -->
     <section>
-        <div class="wrap detail">
+        <div class="wrap detail rev">
             <div class="detail-copy">
                 <div class="kicker">Peace of mind on the road</div>
-                <h2>Know they made it there</h2>
-                <p class="d-lede">For the newest drivers and the farthest trips, Clann quietly keeps watch — an arrival note when they're safe, and a simple drive summary you can talk through together.</p>
+                <h2>Not just where. How.</h2>
+                <p class="d-lede">For the newest drivers and the farthest trips, Clann quietly keeps watch — live speed and altitude while they're moving, an arrival note when they're safe, and a replay of the whole trip you can talk through together.</p>
                 <ul class="checks">
-                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Arrival &amp; departure alerts</b> <span class="sub">— for every place that matters.</span></span></li>
-                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Trip summaries</b> <span class="sub">— a gentle recap, built for coaching, not scolding.</span></span></li>
-                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Family-wide safety</b> <span class="sub">— the same reassurance for kids, teens, and grandparents.</span></span></li>
+                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Live telemetry</b> <span class="sub">— speed, altitude, and battery, plus one tap to know the moment they leave.</span></span></li>
+                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Rewind any trip</b> <span class="sub">— route, speed, and every stop, played back exactly as it happened.</span></span></li>
+                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Even at 35,000 feet</b> <span class="sub">— in the car, on the water, in the air, Clann keeps up.</span></span></li>
+                    <li><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Find them, then drive to them</b> <span class="sub">— Precision Find for the last few feet, turn-by-turn to a family member on the move.</span></span></li>
                 </ul>
             </div>
             <div class="detail-media">
-                <div class="media-card tinted">
-                    <div class="ui-row">
-                        <div class="ui-ico"><svg viewBox="0 0 24 24"><path d="M5 16l1.5-5A3 3 0 019.4 9h5.2a3 3 0 012.9 2L19 16"/><path d="M3 16h18v3H3z"/></svg></div>
-                        <div class="ui-txt"><b>Brady arrived home</b><span>4:32 PM · 12 min drive</span></div>
-                        <span class="ui-pill">Safe</span>
-                    </div>
-                    <div class="ui-row">
-                        <div class="ui-ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11a7 7 0 1114 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
-                        <div class="ui-txt"><b>Left School</b><span>3:15 PM</span></div>
-                        <span class="ui-pill">On the way</span>
-                    </div>
+                <div class="media-card photo">
+                    <img src="assets/screenshots/card-telemetry.jpg" alt="Live Telemetry card in Clann showing speed, altitude, and battery, updated a minute ago" width="900" height="256" loading="lazy">
+                </div>
+                <div class="media-card photo">
+                    <img src="assets/screenshots/card-replay.jpg" alt="Trip replay stats in Clann: speed, altitude, GPS accuracy and heading at 1:13 PM; 41 minutes, 27 miles, 39 mph average, 79 mph max" width="900" height="362" loading="lazy">
                 </div>
             </div>
         </div>
@@ -521,7 +534,7 @@
         <div class="wrap">
             <div class="band">
                 <h2>Private by design, always</h2>
-                <p>Clann exists to bring your family closer — not to sell what it learns. Your family's data stays within your family. No advertising, no data brokers, no cross-app tracking — and we never sell your data.</p>
+                <p>Clann exists to bring your family closer — not to sell what it learns. Your family's data stays within your family. No advertising, no data brokers, no cross-app tracking — and we never sell your data. Screen-time detail comes from Apple's Family Controls and stays on your family's devices.</p>
                 <div class="pill-row">
                     <span class="p-pill"><svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9.4-8 11-4.5-1.6-8-6-8-11V5l8-3z"/></svg>Encrypted in transit</span>
                     <span class="p-pill"><svg viewBox="0 0 24 24"><path d="M18 8V6a6 6 0 10-12 0v2"/><rect x="4" y="8" width="16" height="12" rx="2"/></svg>You control sharing</span>
@@ -534,33 +547,28 @@
     </section>
 
     <!-- =================== SCREENSHOTS =================== -->
-    <section>
+    <section id="gallery">
         <div class="wrap">
             <div class="sec-head">
                 <div class="kicker">Take a closer look</div>
                 <h2>Calm, clear, and made for families</h2>
-                <p>A little bit of everything, none of the noise.</p>
+                <p>The same screens you'll find on the App Store — straight from the app, as of Clann 2.0.3.</p>
             </div>
-            <div class="shots">
-                <div>
-                    <div class="shot-frame">
-                        <img src="assets/screenshots/screentime.png" alt="Clann Screen Time usage report">
-                    </div>
-                    <div class="shot-cap">See their screen time</div>
-                </div>
-                <div>
-                    <div class="shot-frame">
-                        <img src="assets/screenshots/controls.png" alt="Clann parental controls and bonus time">
-                    </div>
-                    <div class="shot-cap">Controls in one tap</div>
-                </div>
-                <div>
-                    <div class="shot-frame">
-                        <img src="assets/screenshots/driving.png" alt="Clann driving safety settings">
-                    </div>
-                    <div class="shot-cap">Coach safer driving</div>
-                </div>
+        </div>
+        <div class="gallery-wrap">
+            <div class="gallery" aria-label="Clann app screenshots">
+                <figure><img src="assets/screenshots/panels/01-family-map.jpg" alt="Your whole family, at a glance — everyone on one live map with location, battery, and screen time" width="645" height="1398" loading="lazy"><figcaption>Your whole family, at a glance</figcaption></figure>
+                <figure><img src="assets/screenshots/panels/02-usage-today.jpg" alt="Screen time you can actually see — every kid's day at a glance" width="645" height="1398" loading="lazy"><figcaption>Screen time you can actually see</figcaption></figure>
+                <figure><img src="assets/screenshots/panels/03-usage-detail.jpg" alt="Know what's behind the number — hour by hour across school, free time, and sleep" width="645" height="1398" loading="lazy"><figcaption>Know what's behind the number</figcaption></figure>
+                <figure><img src="assets/screenshots/panels/04-usage-apps-bonus.jpg" alt="Every app, one fair fix — see where the time went, then add bonus minutes or lock the phone" width="645" height="1398" loading="lazy"><figcaption>Every app. One fair fix.</figcaption></figure>
+                <figure><img src="assets/screenshots/panels/05-usage-week.jpg" alt="See the week take shape — when they're on the phone and how it compares to their usual" width="645" height="1398" loading="lazy"><figcaption>See the week take shape</figcaption></figure>
+                <figure><img src="assets/screenshots/panels/06-live-telemetry.jpg" alt="Not just where, how — live speed, altitude, and battery" width="645" height="1398" loading="lazy"><figcaption>Not just where. How.</figcaption></figure>
+                <figure><img src="assets/screenshots/panels/07-trip-replay.jpg" alt="Rewind any trip — route, speed, and every stop played back" width="645" height="1398" loading="lazy"><figcaption>Rewind any trip</figcaption></figure>
+                <figure><img src="assets/screenshots/panels/08-flight-tracking.jpg" alt="Even at 35,000 feet — Clann keeps up in the car, on the water, in the air" width="645" height="1398" loading="lazy"><figcaption>Even at 35,000 feet</figcaption></figure>
+                <figure><img src="assets/screenshots/panels/09-precision-find.jpg" alt="Find them in a crowd — Precision Find walks you the last few feet" width="645" height="1398" loading="lazy"><figcaption>Find them in a crowd</figcaption></figure>
+                <figure><img src="assets/screenshots/panels/10-navigate.jpg" alt="Turn-by-turn, to them — navigate to a family member on the move" width="645" height="1398" loading="lazy"><figcaption>Turn-by-turn, to them</figcaption></figure>
             </div>
+            <p class="gallery-hint">Swipe or scroll to see more →</p>
         </div>
     </section>
 
@@ -569,8 +577,7 @@
         <div class="wrap">
             <h2>Bring your family a little closer.</h2>
             <p>Set it up in minutes. Feel the difference the first time someone gets home safe and you already knew.</p>
-            <!-- TODO: replace href with the real App Store listing URL -->
-            <a class="btn btn-primary" href="https://apps.apple.com/us/app/chime-by-prvail/id6755217813" style="font-size:17px; padding:16px 28px;">
+            <a class="btn btn-primary" href="https://apps.apple.com/us/app/clann-by-prvail/id6755217813" style="font-size:17px; padding:16px 28px;">
                 <svg class="apple" viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
                 <span><small>Download on the</small><span class="store-txt">App Store</span></span>
             </a>
@@ -589,10 +596,11 @@
                     <div class="foot-col">
                         <h4>Product</h4>
                         <a href="#features">Features</a>
+                        <a href="#usage">Usage</a>
+                        <a href="#whats-new">What's new</a>
                         <a href="#privacy">Privacy</a>
                         <a href="videos.html">Setup videos</a>
-                        <!-- TODO: real App Store URL -->
-                        <a href="https://apps.apple.com/us/app/chime-by-prvail/id6755217813">Download</a>
+                        <a href="https://apps.apple.com/us/app/clann-by-prvail/id6755217813">Download</a>
                     </div>
                     <div class="foot-col">
                         <h4>Company</h4>
@@ -609,6 +617,5 @@
             </div>
         </div>
     </footer>
-
 </body>
 </html>
