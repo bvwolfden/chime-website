@@ -82,13 +82,14 @@
     <main class="wrap doc">
         <div class="doc-head">
             <h1>Privacy Policy</h1>
-            <p class="updated">Last updated: August 28, 2026</p>
+            <p class="updated">Last updated: November 24, 2026</p>
         </div>
 
         <div class="summary">
             <h2>The short version</h2>
             <p><strong>Clann is a family app, and your family's data belongs to your family.</strong> We collect location and device information only to make features like the family map, arrival alerts, and screen-time controls work.</p>
             <p>We <strong>do not</strong> sell your data, show you ads, or share your information with data brokers or advertising networks. You control what you share, and you can delete your data at any time.</p>
+            <p>Clann uses AI to answer parents' questions and to point out things worth a parent's attention. <a href="#ai">Section 6</a> explains what is sent to our AI providers and how it is protected.</p>
         </div>
 
         <nav class="toc" aria-label="Contents">
@@ -99,6 +100,7 @@
                 <li><a href="#use">How we use information</a></li>
                 <li><a href="#location">Location data</a></li>
                 <li><a href="#screentime">Screen Time &amp; parental controls</a></li>
+                <li><a href="#ai">AI in Clann</a></li>
                 <li><a href="#children">Children's privacy</a></li>
                 <li><a href="#sharing">How information is shared</a></li>
                 <li><a href="#providers">Service providers</a></li>
@@ -128,6 +130,7 @@
                     <tr><td>Location</td><td>Precise device location (including in the background) for members who choose to share, saved places and their geofences, and arrival/departure and location-history events.</td><td>To power the family map, presence, and place alerts.</td></tr>
                     <tr><td>Screen Time</td><td>For managed child devices: the limits, schedules, and rules a parent configures, plus usage summaries and app-block/"request more time" events. See <a href="#screentime">section 5</a>.</td><td>To apply and report on parental controls.</td></tr>
                     <tr><td>Device</td><td>Device model, iOS version, app version and build number, a device identifier, and a push-notification (APNs) token.</td><td>To deliver notifications and family-control commands to the right device, and to keep the app reliable.</td></tr>
+                    <tr><td>Ask Clann</td><td>Questions a parent asks Clann and its answers, and facts a parent asks Clann to remember about the family.</td><td>To answer questions and carry out requests. See <a href="#ai">section 6</a>.</td></tr>
                     <tr><td>Messages</td><td>In-app messages and requests between family members (for example, a child's request for more screen time and a parent's reply).</td><td>To deliver family communication features.</td></tr>
                     <tr><td>Diagnostics</td><td>Reliability and telemetry event logs, and optional diagnostic bundles you or your device may send. These are minimized and stripped of unnecessary personal detail.</td><td>To detect and fix problems so location and controls stay dependable.</td></tr>
                     <tr><td>Feedback</td><td>If you send feedback from the app: your message, optional email, optional screenshots you attach, and a diagnostic log from your device.</td><td>To understand and fix what you reported.</td></tr>
@@ -146,6 +149,7 @@
                 <li>To provide the app's core features — the family map, arrival and place alerts, screen-time limits, safe-driving summaries, and family messaging.</li>
                 <li>To deliver push notifications you've asked for (such as a child arriving home or a request for more time).</li>
                 <li>To keep the service secure, reliable, and working correctly, and to diagnose and fix problems.</li>
+                <li>To answer questions a parent asks Clann, and to bring useful things to a parent's attention, using AI as described in <a href="#ai">section 6</a>.</li>
                 <li>To respond to your support requests.</li>
                 <li>To comply with the law, or to protect the safety, rights, or property of our users or the public where we reasonably believe it is necessary.</li>
             </ul>
@@ -158,7 +162,7 @@
             <ul>
                 <li><strong>Sharing is per-person.</strong> Each family member controls whether they share their location, and can stop sharing at any time. When a member isn't sharing, their location isn't collected.</li>
                 <li><strong>"Always" permission.</strong> To show live location and notify your family when someone arrives or leaves a place, iOS requires background ("Always") location access. You grant this in the iOS permission prompt and can change or revoke it anytime in <strong>Settings → Privacy &amp; Security → Location Services → Clann</strong>.</li>
-                <li><strong>Who can see it.</strong> A member's location is visible only to other members of the same Clann family, according to each person's sharing settings. It is not shared publicly or with anyone outside your family.</li>
+                <li><strong>Who can see it.</strong> A member's location is visible only to other members of the same Clann family, according to each person's sharing settings. It is not shared publicly or with anyone outside your family, other than the service providers in <a href="#providers">section 9</a> that process it on our behalf to run the features you use.</li>
                 <li><strong>History.</strong> Recent location and arrival/departure events are stored so the app can show timelines and presence. You can reduce what's kept by turning off sharing or removing a member.</li>
             </ul>
         </section>
@@ -173,23 +177,37 @@
             </ul>
         </section>
 
+        <section class="s" id="ai">
+            <h2>6. AI in Clann</h2>
+            <p>Clann uses AI models in two ways. In both, the AI provider processes your family's information only on our behalf, under terms that do not allow it to be used to train the provider's models, and never for advertising.</p>
+            <ul>
+                <li><strong>Ask Clann.</strong> When a parent asks Clann a question, or asks it to do something, we send the question and the family information needed to answer it to our AI provider. Depending on the question, that can include family members' first names, where they are and the names of your saved places, and your screen-time rules and recent activity such as requests for more time. Ask Clann is available to parents only. We keep the text of your conversations for 7 days and then delete it. Things you ask Clann to remember are kept until you remove them, which you can do in the app.</li>
+                <li><strong>Things Clann brings to your attention.</strong> So that Clann can point out something useful without being asked (a next step in getting set up, a rule that no longer fits how your family uses it, something that has stopped working), our servers prepare a summary of how your family is set up and what has recently happened. Before that summary is sent to our AI provider, the names of people and places and any addresses are replaced with placeholders such as "K1" and "P1", and exact coordinates are left out. We do this for every family that uses Clann. Our own software checks every fact against your family's records before anything is shown to you.</li>
+                <li><strong>You stay in charge.</strong> AI never changes a rule, a limit, or anything on a child's phone by itself. Clann proposes; a parent confirms. What the AI writes is shown to parents only, never on a child's device.</li>
+                <li><strong>On your device.</strong> Where your iPhone supports Apple's on-device model, some steps (such as working out what you are asking for) may run on the phone itself, and that part is not sent anywhere.</li>
+                <li><strong>Read aloud.</strong> If you have Clann speak an answer, the text of that answer is sent to our text-to-speech provider to produce the audio.</li>
+            </ul>
+            <p>The providers involved are listed in <a href="#providers">section 9</a>.</p>
+        </section>
+
         <section class="s" id="children">
-            <h2>6. Children's privacy</h2>
+            <h2>7. Children's privacy</h2>
             <p>Clann is designed to be set up and managed by a parent or guardian for their own family. It is not directed to children for independent sign-up, and we do not knowingly allow children to create their own accounts outside of a family a parent controls.</p>
             <ul>
                 <li>A parent or guardian provides consent for, and manages, any child's participation in the family and the information associated with their device.</li>
                 <li>We collect a child's information only to provide the family-safety features the parent has enabled (such as location sharing and screen-time controls), and we do not use it for advertising or sell it.</li>
-                <li>A parent can review a child's information, stop collection by turning off features or removing the child, and request deletion at any time (see <a href="#rights">section 11</a>).</li>
+                <li>Information about a child may be processed by the AI features described in <a href="#ai">section 6</a>, on the same terms: on our behalf only, never for advertising, never to train an AI provider's models, and never shown to the child.</li>
+                <li>A parent can review a child's information, stop collection by turning off features or removing the child, and request deletion at any time (see <a href="#rights">section 12</a>).</li>
             </ul>
             <div class="callout"><strong>Questions about a child's data?</strong> Email <a href="mailto:support@prvail.ai?subject=Clann%20Children%27s%20Privacy">support@prvail.ai</a> and we'll help you review or delete it.</div>
         </section>
 
         <section class="s" id="sharing">
-            <h2>7. How information is shared</h2>
+            <h2>8. How information is shared</h2>
             <p>We share information only in these limited ways:</p>
             <ul>
                 <li><strong>Within your family.</strong> Location, presence, and controls are shared among members of your Clann family according to each person's settings and role. That's the point of the app.</li>
-                <li><strong>Service providers.</strong> With the infrastructure and platform providers that help us run Clann, described in <a href="#providers">section 8</a>. They may only process data on our behalf to provide their service.</li>
+                <li><strong>Service providers.</strong> With the infrastructure and platform providers that help us run Clann, described in <a href="#providers">section 9</a>. They may only process data on our behalf to provide their service.</li>
                 <li><strong>Legal &amp; safety.</strong> When we reasonably believe disclosure is required by law, or is necessary to protect the safety, rights, or property of our users or others.</li>
                 <li><strong>Business transfer.</strong> If Clann is ever involved in a merger, acquisition, or sale of assets, information may transfer as part of that transaction; we'll require the successor to honor this policy.</li>
             </ul>
@@ -197,7 +215,7 @@
         </section>
 
         <section class="s" id="providers">
-            <h2>8. Service providers</h2>
+            <h2>9. Service providers</h2>
             <p>Clann relies on a small number of providers, each receiving only what its job requires. They may process data solely on our behalf to provide their service:</p>
             <ul>
                 <li><strong>Apple.</strong> Sign in with Apple (authentication), Apple Push Notification service (notifications), Family Controls / Device Activity (parental controls), and StoreKit (purchases). Apple's handling of this data is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>.</li>
@@ -208,14 +226,16 @@
                 <li><strong>Flight data services.</strong> If your family uses flight tracking, our servers query OpenSky Network (with adsb.lol as a fallback) and AeroDataBox (through the RapidAPI gateway) with flight numbers and in-flight position fixes to match and follow a flight. No names or account identities are sent.</li>
                 <li><strong>GitHub (support tooling).</strong> Feedback you submit is triaged in a private issue tracker after personal details are stripped; screenshots are never posted there.</li>
                 <li><strong>OpenStreetMap Nominatim (operations).</strong> When we investigate a reliability problem, our internal diagnostics tools may reverse-geocode a coordinate (turn a latitude/longitude into a street name) using the OpenStreetMap Foundation’s Nominatim service.</li>
-                <li><strong>AI-assisted operations.</strong> Our internal reliability tooling can use the Anthropic API to help triage diagnostic reports and feedback (under API terms that prohibit training on the data). This processes the minimized, personal-detail-stripped diagnostics described above — never location history or family messages.</li>
-                <li><strong>AI providers (currently inactive).</strong> Clann has an optional calendar-prediction feature that, when enabled, sends trip context (a first name, trip start coordinates, saved place names, and calendar event titles) to an AI provider (Anthropic or OpenAI) under API terms that prohibit training on the data. This feature is currently disabled; if we enable it, this section and the in-app disclosures will say so before any data flows.</li>
+                <li><strong>Anthropic (AI).</strong> Our main AI provider for Ask Clann and for the things Clann brings to your attention, as described in <a href="#ai">section 6</a>, under API terms that prohibit training on the data. Our internal reliability tooling also uses the Anthropic API to help triage diagnostic reports and feedback; that processes the minimized, personal-detail-stripped diagnostics described above — never location history or family messages.</li>
+                <li><strong>OpenAI (AI, backup).</strong> Used only if our main AI provider is unavailable, with the same information and under API terms that prohibit training on the data.</li>
+                <li><strong>ElevenLabs (spoken answers).</strong> When you have Clann read an answer aloud, the text of that answer is sent to ElevenLabs to produce the audio.</li>
+                <li><strong>Trip prediction (currently inactive).</strong> Clann has an optional calendar-prediction feature that, when enabled, sends trip context (a first name, trip start coordinates, saved place names, and calendar event titles) to an AI provider (Anthropic or OpenAI) under API terms that prohibit training on the data. This feature is currently disabled; if we enable it, this section and the in-app disclosures will say so before any data flows.</li>
             </ul>
             <p>We keep this list current — if a provider is added or removed, this page changes first.</p>
         </section>
 
         <section class="s" id="retention">
-            <h2>9. Data retention</h2>
+            <h2>10. Data retention</h2>
             <ul>
                 <li>We keep your account and family data for as long as your account is active.</li>
                 <li>Location history and event data are retained to power timelines and presence, and are pruned over time; turning off sharing or removing a member reduces what remains.</li>
@@ -225,7 +245,7 @@
         </section>
 
         <section class="s" id="security">
-            <h2>10. Security</h2>
+            <h2>11. Security</h2>
             <p>We protect your information with industry-standard safeguards:</p>
             <ul>
                 <li>Data is encrypted in transit using TLS between the app and our servers.</li>
@@ -236,10 +256,11 @@
         </section>
 
         <section class="s" id="rights">
-            <h2>11. Your choices &amp; rights</h2>
+            <h2>12. Your choices &amp; rights</h2>
             <ul>
                 <li><strong>Location.</strong> Turn sharing on or off in the app, or change location permission in iOS Settings at any time.</li>
                 <li><strong>Notifications.</strong> Manage or turn off notifications in iOS Settings → Notifications → Clann.</li>
+                <li><strong>Ask Clann.</strong> You can see and remove what Clann remembers about your family in the app. The text of your conversations is deleted automatically after 7 days.</li>
                 <li><strong>Access &amp; deletion.</strong> You can remove family members, and you can delete your account and associated data from within the app or by contacting us.</li>
                 <li><strong>Regional rights.</strong> Depending on where you live (for example, under U.S. state privacy laws or the GDPR), you may have rights to access, correct, delete, or restrict the use of your personal information. We honor these rights — contact us to make a request, and we will not discriminate against you for exercising them.</li>
             </ul>
@@ -247,12 +268,12 @@
         </section>
 
         <section class="s" id="changes">
-            <h2>12. Changes to this policy</h2>
+            <h2>13. Changes to this policy</h2>
             <p>We may update this Privacy Policy as the app evolves. When we do, we'll revise the "Last updated" date above, and for significant changes we'll provide additional notice in the app. Your continued use of Clann after an update means you accept the revised policy.</p>
         </section>
 
         <section class="s" id="contact">
-            <h2>13. Contact us</h2>
+            <h2>14. Contact us</h2>
             <p>Questions, concerns, or requests about your privacy? We'd genuinely like to hear from you.</p>
             <p><strong>Email:</strong> <a href="mailto:support@prvail.ai?subject=Clann%20Privacy">support@prvail.ai</a><br>
             <strong>Operator:</strong> Brian Vukmir (Clann), United States</p>
